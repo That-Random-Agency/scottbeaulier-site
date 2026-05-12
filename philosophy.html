@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philosophy — Scott Beaulier</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .philosophy-content {
+    max-width: 1200px; margin: 0 auto; padding: 80px 40px;
+    display: grid; grid-template-columns: 2fr 1fr; gap: 80px;
+    border-bottom: 1px solid var(--light-rule);
+  }
+
+  .philosophy-prose { font-size: 1.1rem; line-height: 2; color: #333; }
+  .philosophy-prose p { margin-bottom: 28px; }
+
+  .philosophy-prose .drop-cap::first-letter {
+    font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 900;
+    float: left; line-height: 0.8; margin-right: 12px; margin-top: 8px; color: var(--navy);
+  }
+
+  .inline-quote {
+    font-family: 'Playfair Display', serif; font-size: 1.6rem; font-style: italic;
+    line-height: 1.5; color: var(--ink); border-left: 4px solid var(--gold);
+    padding: 24px 0 24px 32px; margin: 40px 0;
+  }
+
+  .inline-quote strong { color: var(--navy); font-weight: 700; }
+
+  .philosophy-sidebar { position: sticky; top: 100px; align-self: start; }
+
+  .sidebar-block { background: var(--cream); padding: 36px; margin-bottom: 32px; }
+
+  .sidebar-block h3 {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.2em; color: var(--navy); margin-bottom: 20px;
+  }
+
+  .sidebar-block p { font-size: 0.92rem; line-height: 1.7; color: var(--mid-gray); margin-bottom: 12px; }
+  .sidebar-block p:last-child { margin-bottom: 0; }
+
+  .principle-list { list-style: none; padding: 0; }
+
+  .principle-list li { padding: 16px 0; border-bottom: 1px solid var(--light-rule); font-size: 0.95rem; line-height: 1.6; }
+  .principle-list li:last-child { border-bottom: none; }
+  .principle-list li strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 4px; }
+  .principle-list li span { color: var(--mid-gray); font-size: 0.88rem; }
+
+  .pillars { max-width: 1200px; margin: 0 auto; padding: 80px 40px; border-bottom: 1px solid var(--light-rule); }
+
+  .pillars-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1.5px solid var(--navy);
+  }
+
+  .pillar-item {
+    padding: 40px 28px; border-right: 1px solid var(--light-rule);
+    text-align: center; transition: background 0.3s;
+  }
+
+  .pillar-item:last-child { border-right: none; }
+  .pillar-item:hover { background: var(--cream); }
+
+  .pillar-number {
+    font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900;
+    color: var(--gold); margin-bottom: 16px; line-height: 1;
+  }
+
+  .pillar-item h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; }
+  .pillar-item p { font-size: 0.88rem; color: var(--mid-gray); line-height: 1.65; }
+
+  .photo-break {
+    max-width: 1200px; margin: 0 auto; padding: 0 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+  }
+
+  .photo-slot {
+    aspect-ratio: 16/9; background: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+    color: rgba(26,26,26,0.2); text-transform: uppercase; letter-spacing: 0.15em;
+  }
+
+  @media (max-width: 900px) {
+    .philosophy-content { grid-template-columns: 1fr; gap: 40px; }
+    .philosophy-sidebar { position: static; }
+    .pillars-grid { grid-template-columns: 1fr 1fr; }
+    .pillar-item:nth-child(2) { border-right: none; }
+    .pillar-item:nth-child(1), .pillar-item:nth-child(2) { border-bottom: 1px solid var(--light-rule); }
+    .photo-break { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .philosophy-content { padding: 50px 24px; }
+    .pillars { padding: 50px 24px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .pillar-item { border-right: none; border-bottom: 1px solid var(--light-rule); }
+    .pillar-item:last-child { border-bottom: none; }
+    .inline-quote { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top-bar"><div class="top-bar-inner"><a href="index.html" class="site-name">Scott Beaulier</a><nav><a href="index.html">Home</a><a href="philosophy.html" class="active">Philosophy</a><a href="cv.html">CV</a><a href="press.html">Press</a><a href="contact.html">Contact</a></nav></div></header>
+
+<section class="page-hero">
+  <div class="hero-kicker">Vision & Approach</div>
+  <h1>Building the <em>future</em> of business education.</h1>
+  <p class="hero-subtitle">Business schools should serve students and businesses. Great education should be affordable. And the best leaders are built through character, knowledge, and experience — not just textbooks.</p>
+</section>
+
+<section class="pillars">
+  <div class="section-header"><h2>Four Pillars</h2><span class="section-label">Guiding Principles</span></div>
+  <div class="pillars-grid">
+    <div class="pillar-item fade-in"><div class="pillar-number">01</div><h3>Serve Both Sides</h3><p>The best programs serve students <em>and</em> the employers who will hire them. Academic ivory towers help no one.</p></div>
+    <div class="pillar-item fade-in"><div class="pillar-number">02</div><h3>Affordable Quality</h3><p>Making degrees accessible doesn't mean cutting corners. It means innovating how education is delivered.</p></div>
+    <div class="pillar-item fade-in"><div class="pillar-number">03</div><h3>Get Off Campus</h3><p>Innovation comes from listening — to students, to CEOs, to the marketplace. Not from committee meetings.</p></div>
+    <div class="pillar-item fade-in"><div class="pillar-number">04</div><h3>Character Matters</h3><p>Tomorrow's leaders need more than hard skills. Character, experience, and ethical grounding are the foundation.</p></div>
+  </div>
+</section>
+
+<section class="philosophy-content">
+  <div class="philosophy-prose">
+    <p class="drop-cap">Academic degrees are a means to an end. Scott's focus is on maximizing each student's return on their investment <em>and</em> serving employers well by preparing graduates for a constantly changing, global economy. It's a formula that translates into flourishing for individuals and society.</p>
+    <p>Innovation in academic business programs comes from listening — to students and to employers. Scott makes it a priority to get off campus to meet with business leaders and apply those conversations to academic models. The result is curriculum that's grounded in real-world demands, not academic tradition for its own sake.</p>
+    <div class="inline-quote">"While policies are integral, I believe that <strong>people</strong> — innovative, creative, and dedicated business leaders — are the <strong>lifeblood</strong> of any economy."</div>
+    <p>An economist by training, Scott has spent his career actively engaged in understanding and advocating for policies that foster dynamic, vibrant economies — the kind that best allow businesses and entrepreneurs to thrive. But, while policies are integral, he believes that people — innovative, creative, and dedicated business leaders — are the lifeblood of any economy.</p>
+    <p>Business schools have an enormous responsibility and role in preparing the next generation to change the world through business. It's a responsibility that Scott feels honored to have, and one that he doesn't take lightly. The next generation of leaders depends on educators to help set them up for success.</p>
+    <p>As the country struggles with how to address the skyrocketing cost of higher education, Scott is committed to being part of the solution. He has consistently proven that making academic degrees affordable and accessible does not mean sacrificing quality. It just requires responding to the modern marketplace, integrating the latest technologies, and not being afraid to drop the status quo.</p>
+  </div>
+  <aside class="philosophy-sidebar">
+    <div class="sidebar-block">
+      <h3>Core Beliefs</h3>
+      <ul class="principle-list">
+        <li><strong>Education is an investment</strong><span>Every student deserves a measurable return on their time and money.</span></li>
+        <li><strong>Listen to employers</strong><span>Curriculum should reflect what the marketplace actually needs.</span></li>
+        <li><strong>Affordable ≠ inferior</strong><span>Innovation in delivery can reduce cost without reducing quality.</span></li>
+        <li><strong>Character is curriculum</strong><span>Ethics, experience, and leadership skills matter as much as technical knowledge.</span></li>
+        <li><strong>Drop the status quo</strong><span>The courage to change is the most important trait in higher ed leadership.</span></li>
+      </ul>
+    </div>
+    <div class="sidebar-block">
+      <h3>In Scott's Words</h3>
+      <p>"I have consistently proven that making academic degrees affordable and accessible does not mean sacrificing quality."</p>
+      <p>"The next generation of leaders depends on us to help set them up for success."</p>
+    </div>
+  </aside>
+</section>
+
+<div class="photo-break">
+  <div class="photo-slot">[ Photo: Scott with students ]</div>
+  <div class="photo-slot">[ Photo: Speaking at event ]</div>
+</div>
+
+<section class="media-cta">
+  <div class="media-cta-inner">
+    <h2>Interested in Scott's Approach?</h2>
+    <p>Whether you're a journalist covering higher ed reform, a conference organizer, or a fellow academic leader — Scott welcomes the conversation.</p>
+    <div class="cta-buttons"><a href="contact.html" class="cta-btn primary">Get in Touch</a><a href="cv.html" class="cta-btn">View Full CV</a></div>
+  </div>
+</section>
+
+<footer><span>© 2026 Scott Beaulier. All rights reserved.</span><div><a href="https://twitter.com/SBeaulier77">Twitter/X</a><a href="https://www.facebook.com/scott.beaulier.3">Facebook</a><a href="#">LinkedIn</a></div></footer>
+
+</body>
+</html>

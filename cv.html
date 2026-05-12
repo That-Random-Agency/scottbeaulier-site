@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Scott Beaulier</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .cv-intro { max-width:1200px; margin:0 auto; padding:40px 40px 60px; display:grid; grid-template-columns:280px 1fr; gap:60px; border-bottom:1px solid var(--light-rule); }
+  .cv-photo { aspect-ratio:3/4; background:var(--cream); overflow:hidden; position:sticky; top:80px; align-self:start; border-bottom:4px solid var(--gold); }
+  .cv-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+  .cv-header-info h2 { font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; margin-bottom:8px; }
+  .cv-header-info .cv-title { font-size:1.05rem; color:var(--mid-gray); font-style:italic; margin-bottom:24px; }
+  .cv-contact-row { display:flex; gap:32px; flex-wrap:wrap; margin-bottom:24px; }
+  .cv-contact-item { font-size:0.85rem; color:var(--mid-gray); }
+  .cv-contact-item strong { display:block; font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--navy); margin-bottom:4px; }
+  .cv-contact-item a { color:var(--ink); text-decoration:none; border-bottom:1px solid var(--light-rule); transition:border-color 0.3s; }
+  .cv-contact-item a:hover { border-color:var(--gold); }
+  .cv-summary { font-size:1rem; line-height:1.8; color:#444; padding:24px 0; border-top:1px solid var(--light-rule); }
+  .cv-download-btn { display:inline-block; font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; padding:12px 28px; background:var(--gold); color:white; text-decoration:none; transition:background 0.3s; margin-top:20px; }
+  .cv-download-btn:hover { background:var(--gold-light); }
+
+  .cv-section { max-width:1200px; margin:0 auto; padding:60px 40px; border-bottom:1px solid var(--light-rule); }
+  .cv-section-header { display:flex; align-items:baseline; gap:16px; margin-bottom:36px; padding-bottom:12px; border-bottom:2px solid var(--ink); }
+  .cv-section-header h2 { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:900; }
+  .cv-section-header span { font-family:'JetBrains Mono',monospace; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); }
+
+  .cv-timeline { display:flex; flex-direction:column; }
+  .cv-entry { display:grid; grid-template-columns:180px 1fr; gap:40px; padding:28px 0; border-bottom:1px solid var(--light-rule); transition:all 0.3s; }
+  .cv-entry:hover { padding-left:8px; }
+  .cv-entry:last-child { border-bottom:none; }
+  .cv-entry-dates { font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--mid-gray); padding-top:4px; }
+  .cv-entry-content h3 { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; margin-bottom:4px; }
+  .cv-entry-content .institution { font-size:0.92rem; color:var(--navy); font-weight:600; margin-bottom:8px; }
+  .cv-entry-content .description { font-size:0.92rem; color:var(--mid-gray); line-height:1.7; }
+
+  .accomplishment-block { background:var(--cream); padding:40px; margin-top:40px; border-top:4px solid var(--gold); }
+  .accomplishment-block h3 { font-family:'JetBrains Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); margin-bottom:20px; }
+  .accomplishment-block p { font-size:0.95rem; line-height:1.8; color:#444; margin-bottom:12px; }
+  .accomplishment-block p:last-child { margin-bottom:0; }
+
+  .education-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+  .education-card { background:var(--cream); padding:36px; border-top:4px solid var(--gold); }
+  .education-card .degree-type { font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); margin-bottom:12px; }
+  .education-card h3 { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:900; margin-bottom:4px; }
+  .education-card .school { font-size:1rem; font-weight:600; color:var(--mid-gray); margin-bottom:8px; }
+  .education-card .year { font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--mid-gray); }
+
+  .affiliations-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1.5px solid var(--navy); }
+  .affiliation-item { padding:20px 24px; border-right:1px solid var(--light-rule); border-bottom:1px solid var(--light-rule); display:flex; justify-content:space-between; align-items:baseline; transition:background 0.3s; }
+  .affiliation-item:hover { background:var(--cream); }
+  .affiliation-item:nth-child(2n) { border-right:none; }
+  .affiliation-name { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; }
+  .affiliation-role { font-size:0.82rem; color:var(--mid-gray); margin-top:2px; }
+  .affiliation-dates { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--mid-gray); white-space:nowrap; }
+
+  @media (max-width:900px) {
+    .cv-intro { grid-template-columns:1fr; gap:32px; }
+    .cv-photo { max-width:200px; position:static; }
+    .cv-entry { grid-template-columns:1fr; gap:8px; }
+    .affiliations-grid { grid-template-columns:1fr; }
+    .affiliation-item { border-right:none; }
+    .education-grid { grid-template-columns:1fr; }
+  }
+
+  @media (max-width:600px) {
+    .cv-intro { padding:30px 24px 40px; }
+    .cv-section { padding:40px 24px; }
+    .cv-contact-row { flex-direction:column; gap:16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top-bar"><div class="top-bar-inner"><a href="index.html" class="site-name">Scott Beaulier</a><nav><a href="index.html">Home</a><a href="philosophy.html">Philosophy</a><a href="cv.html" class="active">CV</a><a href="press.html">Press</a><a href="contact.html">Contact</a></nav></div></header>
+
+<section class="page-hero">
+  <div class="hero-kicker">Curriculum Vitae</div>
+  <h1>Two decades of <em>transformative</em> leadership.</h1>
+  <p class="hero-subtitle">From George Mason to Wyoming, a career dedicated to reimagining what business schools can be.</p>
+</section>
+
+<section class="cv-intro">
+  <div class="cv-photo"><img src="scott-portrait.jpg" alt="Scott Beaulier"></div>
+  <div class="cv-header-info">
+    <h2>Scott A. Beaulier, Ph.D.</h2>
+    <p class="cv-title">H.A. (Dave) True Family Dean of Business, University of Wyoming</p>
+    <div class="cv-contact-row">
+      <div class="cv-contact-item"><strong>Office</strong>1000 E. University Ave.<br>BU 311, Laramie, WY 82071</div>
+      <div class="cv-contact-item"><strong>Phone</strong><a href="tel:3077664977">(307) 766-4977</a> Office<br><a href="tel:6024890692">(602) 489-0692</a> Cell</div>
+      <div class="cv-contact-item"><strong>Email</strong><a href="mailto:Sbeauli2@uwyo.edu">Sbeauli2@uwyo.edu</a></div>
+    </div>
+    <p class="cv-summary">More than 15 years of experience in higher education as a faculty member, department chair, research director, and dean. A visionary leader and effective communicator with demonstrated success in building alumni relations, partnering with industry, fundraising, and developing programs that serve both students and the modern marketplace.</p>
+    <a href="#" class="cv-download-btn">↓ Download Full CV (PDF)</a>
+  </div>
+</section>
+
+<section class="cv-section">
+  <div class="cv-section-header"><h2>Leadership Roles</h2><span>Administrative Positions</span></div>
+  <div class="cv-timeline">
+    <div class="cv-entry"><div class="cv-entry-dates">2022 – Present</div><div class="cv-entry-content"><h3>H.A. (Dave) True Family Dean of Business</h3><div class="institution">University of Wyoming</div><div class="description">Leading an AACSB-accredited college serving 1,500 students with 75 faculty/staff and a $12M+ budget. Overseeing strategic plan development, MBA program growth, and faculty retention initiatives.</div></div></div>
+    <div class="cv-entry"><div class="cv-entry-dates">2016 – 2022</div><div class="cv-entry-content"><h3>Ronald & Kaye Olson Dean of Business</h3><div class="institution">North Dakota State University</div><div class="description">Led undergraduate and graduate College of Business programs to achieve many historic successes. Built strong industry partnerships and community engagement across the region.</div></div></div>
+    <div class="cv-entry"><div class="cv-entry-dates">2015 – 2016</div><div class="cv-entry-content"><h3>Executive Director, Center for the Study of Economic Liberty</h3><div class="institution">Arizona State University — W.P. Carey School of Business</div></div></div>
+    <div class="cv-entry"><div class="cv-entry-dates">2010 – 2014</div><div class="cv-entry-content"><h3>Executive Director, Manuel H. Johnson Center for Political Economy</h3><div class="institution">Troy University</div><div class="description">Grew the Johnson Center into a robust academic center. Recruited seven top Ph.D. economists and expanded offerings to include a major and Master of Arts in economics.</div></div></div>
+    <div class="cv-entry"><div class="cv-entry-dates">2008 – 2010</div><div class="cv-entry-content"><h3>BB&T Distinguished Professor of Capitalism & Department Chair</h3><div class="institution">Mercer University</div><div class="description">Director of Center for Undergraduate Research in Public Policy & Capitalism.</div></div></div>
+  </div>
+  <div class="accomplishment-block">
+    <h3>University of Wyoming Highlights</h3>
+    <p>Secured new external resources in Fall 2022 to support junior faculty retention and a nationally prominent guest speaker series.</p>
+    <p>Expanded online MBA program enrollments to account for 20%+ of College of Business revenues.</p>
+    <p>The Economics Department continues to be recognized as a Top 20 program in the U.S. for environmental and experimental economics, with significant NSF and EPSCOR support.</p>
+    <p>Maintained stable and growing undergraduate enrollments during a period of declining university-wide enrollment.</p>
+  </div>
+</section>
+
+<section class="cv-section">
+  <div class="cv-section-header"><h2>Education</h2><span>Academic Credentials</span></div>
+  <div class="education-grid">
+    <div class="education-card fade-in"><div class="degree-type">Doctoral Degree</div><h3>Ph.D. in Economics</h3><div class="school">George Mason University</div><div class="year">2004 · Also M.A. Economics, 2002</div></div>
+    <div class="education-card fade-in"><div class="degree-type">Undergraduate Degree</div><h3>B.S. Economics & History</h3><div class="school">Northern Michigan University</div><div class="year">2000</div></div>
+  </div>
+</section>
+
+<section class="cv-section">
+  <div class="cv-section-header"><h2>Academic Positions</h2><span>Faculty Roles</span></div>
+  <div class="cv-timeline">
+    <div class="cv-entry"><div class="cv-entry-dates">2022 – Present</div><div class="cv-entry-content"><h3>Professor of Economics</h3><div class="institution">University of Wyoming</div></div></div>
+    <div class="cv-entry"><div class="cv-entry-dates">2016 – 2022</div><div class="cv-entry-content"><h3>Professor of Economics</h3><div class="institution">North Dakota State University</div></div></div>
+    <div class="cv-entry"><div class="cv-entry-dates">2010 – 2014</div><div class="cv-entry-content"><h3>Adams-Bibby Chair of Free Enterprise / Associate Professor</h3><div class="institution">Troy University</div></div></div>
+    <div class="cv-entry"><div class="cv-entry-dates">2009 – 2010</div><div class="cv-entry-content"><h3>BB&T Distinguished Professor / Associate Professor</h3><div class="institution">Mercer University</div></div></div>
+    <div class="cv-entry"><div class="cv-entry-dates">2007 – 2008</div><div class="cv-entry-content"><h3>Assistant Professor of Economics</h3><div class="institution">Beloit College</div></div></div>
+    <div class="cv-entry"><div class="cv-entry-dates">2004 – 2007</div><div class="cv-entry-content"><h3>Assistant Professor of Economics</h3><div class="institution">Mercer University</div></div></div>
+  </div>
+</section>
+
+<section class="cv-section">
+  <div class="cv-section-header"><h2>Board Service & Affiliations</h2><span>Community & Professional</span></div>
+  <div class="affiliations-grid">
+    <div class="affiliation-item"><div><div class="affiliation-name">Institute for Humane Studies</div><div class="affiliation-role">Board of Directors</div></div><div class="affiliation-dates">2012 – 2022</div></div>
+    <div class="affiliation-item"><div><div class="affiliation-name">Dakota Medical Foundation</div><div class="affiliation-role">Member</div></div><div class="affiliation-dates">2017 – 2022</div></div>
+    <div class="affiliation-item"><div><div class="affiliation-name">Fargo Public Library</div><div class="affiliation-role">Board President (2021–22)</div></div><div class="affiliation-dates">2017 – 2022</div></div>
+    <div class="affiliation-item"><div><div class="affiliation-name">Foundation for Economic Education</div><div class="affiliation-role">Board of Scholars</div></div><div class="affiliation-dates">2012 – 2019</div></div>
+    <div class="affiliation-item"><div><div class="affiliation-name">Plains Art Museum</div><div class="affiliation-role">Treasurer / Finance Chair</div></div><div class="affiliation-dates">2017 – 2019</div></div>
+    <div class="affiliation-item"><div><div class="affiliation-name">American Energy Alliance</div><div class="affiliation-role">Board Member</div></div><div class="affiliation-dates">2009 – 2017</div></div>
+    <div class="affiliation-item"><div><div class="affiliation-name">RealClearMarkets</div><div class="affiliation-role">Contributor</div></div><div class="affiliation-dates">2014 – 2016</div></div>
+    <div class="affiliation-item"><div><div class="affiliation-name">AL.com / Birmingham News</div><div class="affiliation-role">Contributor</div></div><div class="affiliation-dates">2013 – 2014</div></div>
+  </div>
+</section>
+
+<section class="media-cta">
+  <div class="media-cta-inner">
+    <h2>Download the Full CV</h2>
+    <p>For a complete list of publications, presentations, and professional service, download the full curriculum vitae.</p>
+    <div class="cta-buttons"><a href="#" class="cta-btn primary">↓ Download CV (PDF)</a><a href="contact.html" class="cta-btn">Contact Scott</a></div>
+  </div>
+</section>
+
+<footer><span>© 2026 Scott Beaulier. All rights reserved.</span><div><a href="https://twitter.com/SBeaulier77">Twitter/X</a><a href="https://www.facebook.com/scott.beaulier.3">Facebook</a><a href="#">LinkedIn</a></div></footer>
+
+</body>
+</html>

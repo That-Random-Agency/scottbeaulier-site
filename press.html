@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press & Media — Scott Beaulier</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .quick-grab { background:var(--navy); color:var(--warm-white); padding:24px 40px; }
+  .quick-grab-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .quick-grab-label { font-family:'JetBrains Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--gold-light); }
+  .quick-grab-links { display:flex; gap:16px; flex-wrap:wrap; }
+  .quick-grab-links a { font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--warm-white); text-decoration:none; padding:8px 20px; border:1.5px solid rgba(255,255,255,0.3); transition:all 0.3s; }
+  .quick-grab-links a:hover { background:var(--warm-white); color:var(--navy); border-color:var(--warm-white); }
+
+  .bios-section { max-width:1200px; margin:0 auto; padding:80px 40px; border-bottom:1px solid var(--light-rule); }
+  .bio-versions { display:grid; grid-template-columns:1fr 1fr; gap:50px; }
+  .bio-version { background:var(--cream); padding:36px; }
+  .bio-version-label { font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); margin-bottom:16px; display:flex; justify-content:space-between; }
+  .word-count { font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--mid-gray); }
+  .bio-version p { font-size:0.95rem; line-height:1.8; color:#444; margin-bottom:12px; }
+  .copy-btn { font-family:'JetBrains Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; background:var(--navy); color:var(--warm-white); border:none; padding:10px 20px; cursor:pointer; transition:background 0.3s; }
+  .copy-btn:hover { background:var(--gold); }
+
+  .headshots-section { max-width:1200px; margin:0 auto; padding:80px 40px; border-bottom:1px solid var(--light-rule); }
+  .headshots-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+  .headshot-card { background:var(--cream); overflow:hidden; transition:transform 0.3s; }
+  .headshot-card:hover { transform:translateY(-4px); }
+  .headshot-image { aspect-ratio:3/4; overflow:hidden; }
+  .headshot-image img { width:100%; height:100%; object-fit:cover; object-position:center top; filter:grayscale(15%); transition:filter 0.3s; }
+  .headshot-card:hover .headshot-image img { filter:grayscale(0%); }
+  .headshot-image-placeholder { width:100%; height:100%; background:linear-gradient(135deg,var(--cream) 0%,#e0ddd6 100%); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:3rem; font-weight:900; color:rgba(26,26,26,0.06); }
+  .headshot-info { padding:20px; display:flex; justify-content:space-between; align-items:center; }
+  .headshot-label { font-size:0.82rem; font-weight:600; }
+  .headshot-meta { font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--mid-gray); }
+  .headshot-download { font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--navy); text-decoration:none; transition:color 0.3s; }
+  .headshot-download:hover { color:var(--gold); }
+
+  .reporter-topics { max-width:1200px; margin:0 auto; padding:80px 40px; border-bottom:1px solid var(--light-rule); }
+  .reporter-intro { font-size:1.1rem; line-height:1.8; color:var(--mid-gray); max-width:700px; margin-bottom:40px; }
+  .topic-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:0; border:1.5px solid var(--navy); }
+  .topic-card { padding:32px; border-right:1px solid var(--light-rule); border-bottom:1px solid var(--light-rule); transition:background 0.3s; }
+  .topic-card:hover { background:var(--cream); }
+  .topic-card:nth-child(2n) { border-right:none; }
+  .topic-card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; }
+  .topic-card p { font-size:0.9rem; color:var(--mid-gray); line-height:1.7; margin-bottom:12px; }
+  .sample-questions { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--navy); font-style:italic; }
+
+  .coverage-section { max-width:1200px; margin:0 auto; padding:80px 40px; border-bottom:1px solid var(--light-rule); }
+  .coverage-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:32px; }
+  .coverage-item { padding:28px; border:1.5px solid var(--light-rule); text-decoration:none; color:var(--ink); transition:all 0.3s; display:block; }
+  .coverage-item:hover { border-color:var(--navy); transform:translateY(-2px); }
+  .coverage-outlet { font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--navy); margin-bottom:10px; }
+  .coverage-headline { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; line-height:1.35; margin-bottom:8px; }
+  .coverage-date { font-size:0.82rem; color:var(--mid-gray); }
+
+  .speaking-section { max-width:1200px; margin:0 auto; padding:80px 40px; border-bottom:1px solid var(--light-rule); }
+  .speaking-topics { display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; }
+  .speaking-card { background:var(--cream); padding:32px; border-left:4px solid var(--gold); transition:transform 0.3s; }
+  .speaking-card:hover { transform:translateY(-4px); }
+  .speaking-card h3 { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; margin-bottom:10px; }
+  .speaking-card p { font-size:0.88rem; color:var(--mid-gray); line-height:1.7; }
+  .speaking-format { margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--navy); }
+
+  @media (max-width:900px) {
+    .bio-versions { grid-template-columns:1fr; }
+    .headshots-grid { grid-template-columns:1fr 1fr; }
+    .topic-cards { grid-template-columns:1fr; }
+    .topic-card { border-right:none; }
+    .coverage-grid { grid-template-columns:1fr; }
+    .speaking-topics { grid-template-columns:1fr; }
+    .quick-grab-inner { flex-direction:column; text-align:center; }
+  }
+
+  @media (max-width:600px) {
+    .quick-grab { padding:20px 24px; }
+    .bios-section,.headshots-section,.reporter-topics,.coverage-section,.speaking-section { padding:50px 24px; }
+    .headshots-grid { grid-template-columns:1fr; max-width:300px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top-bar"><div class="top-bar-inner"><a href="index.html" class="site-name">Scott Beaulier</a><nav><a href="index.html">Home</a><a href="philosophy.html">Philosophy</a><a href="cv.html">CV</a><a href="press.html" class="active">Press</a><a href="contact.html">Contact</a></nav></div></header>
+
+<section class="page-hero">
+  <div class="hero-kicker">For Journalists & Media</div>
+  <h1>Press & <em>Media</em> Resources</h1>
+  <p class="hero-subtitle">Everything you need to feature Scott Beaulier in your coverage — bios, headshots, topic expertise, and direct contact information.</p>
+</section>
+
+<section class="quick-grab"><div class="quick-grab-inner"><span class="quick-grab-label">Quick Downloads</span><div class="quick-grab-links"><a href="#">↓ Hi-Res Headshot</a><a href="#">↓ Short Bio (50 words)</a><a href="#">↓ Full Bio (250 words)</a><a href="#">↓ One-Sheet PDF</a><a href="#">↓ Full CV</a></div></div></section>
+
+<section class="bios-section">
+  <div class="section-header"><h2>Official Bios</h2><span class="section-label">Copy & Paste Ready</span></div>
+  <div class="bio-versions">
+    <div class="bio-version">
+      <div class="bio-version-label">Short Bio <span class="word-count">~50 words</span></div>
+      <p>Scott Beaulier is the H.A. (Dave) True Family Dean of the College of Business at the University of Wyoming. An economist by training (Ph.D., George Mason University), he is an outspoken advocate for affordable, employer-aligned business education and the economic vitality of the American West.</p>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('p').textContent).then(()=>{this.textContent='✓ Copied';setTimeout(()=>this.textContent='Copy to Clipboard',2000);})">Copy to Clipboard</button>
+    </div>
+    <div class="bio-version">
+      <div class="bio-version-label">Full Bio <span class="word-count">~150 words</span></div>
+      <p>Scott Beaulier serves as the H.A. (Dave) True Family Dean of the College of Business at the University of Wyoming, an AACSB-accredited program serving 1,500 students. An economist by training, he holds a Ph.D. from George Mason University.</p>
+      <p>Over his decades-long career in higher education leadership — spanning Troy University, Arizona State University, and North Dakota State University — Scott has built a track record of developing business programs that fuse academic rigor with the realities of business in the 21st century. He is an outspoken advocate for making quality education affordable and accessible, and believes the best business schools serve students and the employers who will hire them.</p>
+      <p>Scott is a frequent commentator on higher education reform, economic freedom, and workforce development. He has contributed to RealClearMarkets, AL.com, and numerous academic journals.</p>
+      <button class="copy-btn" onclick="let t=Array.from(this.parentElement.querySelectorAll('p')).map(p=>p.textContent).join(' ');navigator.clipboard.writeText(t).then(()=>{this.textContent='✓ Copied';setTimeout(()=>this.textContent='Copy to Clipboard',2000);})">Copy to Clipboard</button>
+    </div>
+  </div>
+</section>
+
+<section class="headshots-section">
+  <div class="section-header"><h2>Headshots</h2><span class="section-label">High Resolution, Print & Web</span></div>
+  <div class="headshots-grid">
+    <div class="headshot-card fade-in"><div class="headshot-image"><img src="scott-portrait.jpg" alt="Scott Beaulier — Professional Portrait"></div><div class="headshot-info"><div><div class="headshot-label">Professional Portrait</div><div class="headshot-meta">Hi-Res · JPG</div></div><a href="#" class="headshot-download">↓ Download</a></div></div>
+    <div class="headshot-card fade-in"><div class="headshot-image"><div class="headshot-image-placeholder">SB</div></div><div class="headshot-info"><div><div class="headshot-label">Casual / Editorial</div><div class="headshot-meta">Hi-Res · JPG</div></div><a href="#" class="headshot-download">↓ Download</a></div></div>
+    <div class="headshot-card fade-in"><div class="headshot-image"><div class="headshot-image-placeholder">SB</div></div><div class="headshot-info"><div><div class="headshot-label">Campus / Environmental</div><div class="headshot-meta">Hi-Res · JPG</div></div><a href="#" class="headshot-download">↓ Download</a></div></div>
+  </div>
+</section>
+
+<section class="reporter-topics">
+  <div class="section-header"><h2>Story Ideas</h2><span class="section-label">Topics & Angles</span></div>
+  <p class="reporter-intro">Scott is available to provide expert commentary, op-eds, and interviews on the following topics. Each includes suggested questions to help frame your story.</p>
+  <div class="topic-cards">
+    <div class="topic-card"><h3>The Affordability Crisis in Higher Ed</h3><p>How business schools can deliver quality education without crushing student debt — and which schools are leading the way.</p><div class="sample-questions">"What does affordable quality education actually look like?"</div></div>
+    <div class="topic-card"><h3>Are Business Schools Preparing Students for the Real World?</h3><p>The growing disconnect between academic curricula and what employers actually need from new hires.</p><div class="sample-questions">"What are CEOs telling you they wish graduates knew?"</div></div>
+    <div class="topic-card"><h3>Economic Freedom & Entrepreneurship</h3><p>How regulatory environments and policy decisions either fuel or stifle small business growth and innovation.</p><div class="sample-questions">"Which policies matter most for entrepreneurs right now?"</div></div>
+    <div class="topic-card"><h3>The Future of Rural & Western Economies</h3><p>What it takes to build vibrant economies in Wyoming, the Great Plains, and beyond the coastal metros.</p><div class="sample-questions">"What's Wyoming getting right that other states aren't?"</div></div>
+    <div class="topic-card"><h3>Enrollment Decline & the Future of Universities</h3><p>How colleges are navigating a demographic cliff and what bold leaders are doing differently to survive.</p><div class="sample-questions">"What does a thriving university look like in 2030?"</div></div>
+    <div class="topic-card"><h3>The "Cowboys in Business" Philosophy</h3><p>A provocative take on what Western grit, independence, and character can teach the business world.</p><div class="sample-questions">"What does a 'cowboy approach' to business actually mean?"</div></div>
+  </div>
+</section>
+
+<section class="coverage-section">
+  <div class="section-header"><h2>Recent Coverage</h2><span class="section-label">In the News</span></div>
+  <div class="coverage-grid">
+    <a class="coverage-item" href="#"><div class="coverage-outlet">University of Wyoming</div><div class="coverage-headline">College of Business Announces New Strategic Plan Under Dean Beaulier</div><div class="coverage-date">2023</div></a>
+    <a class="coverage-item" href="#"><div class="coverage-outlet">RealClearMarkets</div><div class="coverage-headline">Commentary: Free Markets and Higher Education Reform</div><div class="coverage-date">2016</div></a>
+    <a class="coverage-item" href="#"><div class="coverage-outlet">AL.com / Birmingham News</div><div class="coverage-headline">Op-Ed Contributions on Economic Policy and Enterprise</div><div class="coverage-date">2013 – 2014</div></a>
+    <a class="coverage-item" href="#"><div class="coverage-outlet">North Dakota State University</div><div class="coverage-headline">Dean Beaulier Leads Historic Growth in College of Business</div><div class="coverage-date">2016 – 2022</div></a>
+  </div>
+</section>
+
+<section class="speaking-section">
+  <div class="section-header"><h2>Speaking</h2><span class="section-label">Keynotes & Panels</span></div>
+  <div class="speaking-topics">
+    <div class="speaking-card fade-in"><h3>The Future of Business Education</h3><p>A forward-looking talk on how technology, employer needs, and affordability pressures are reshaping the B-school model.</p><div class="speaking-format">Keynote · 30-45 min</div></div>
+    <div class="speaking-card fade-in"><h3>Cowboys & Capitalism</h3><p>What the independent, resilient spirit of the American West can teach today's business leaders about character and risk.</p><div class="speaking-format">Keynote · Fireside Chat</div></div>
+    <div class="speaking-card fade-in"><h3>Building Bridges: Campus to Boardroom</h3><p>A practical framework for how universities and employers can collaborate to produce job-ready graduates.</p><div class="speaking-format">Panel · Workshop · 60 min</div></div>
+  </div>
+</section>
+
+<section class="media-cta">
+  <div class="media-cta-inner">
+    <h2>Need a Quote or Interview?</h2>
+    <p>Scott is responsive and available for media on short notice. He's comfortable with TV, radio, podcasts, and print formats.</p>
+    <div class="cta-buttons"><a href="mailto:Sbeauli2@uwyo.edu" class="cta-btn primary">Email Scott Directly</a><a href="tel:6024890692" class="cta-btn">Call: (602) 489-0692</a></div>
+  </div>
+</section>
+
+<footer><span>© 2026 Scott Beaulier. All rights reserved.</span><div><a href="https://twitter.com/SBeaulier77">Twitter/X</a><a href="https://www.facebook.com/scott.beaulier.3">Facebook</a><a href="#">LinkedIn</a></div></footer>
+
+</body>
+</html>
