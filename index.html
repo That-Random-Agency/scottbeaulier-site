@@ -44,6 +44,74 @@
   .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
   .hero-image-caption { margin-top: 12px; font-size: 0.75rem; color: var(--mid-gray); font-style: italic; }
 
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--cream); padding: 48px 40px;
+    border-bottom: 1px solid var(--light-rule);
+  }
+  .stats-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center; gap: 0;
+  }
+  .stat-item { flex: 1; text-align: center; padding: 0 32px; }
+  .stat-number {
+    font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 900;
+    color: var(--navy); line-height: 1; margin-bottom: 8px;
+  }
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+    text-transform: uppercase; letter-spacing: 0.15em; color: var(--mid-gray);
+  }
+  .stat-divider {
+    width: 1px; height: 60px; background: var(--light-rule); flex-shrink: 0;
+  }
+
+  /* ── CAREER ARC ── */
+  .career-arc {
+    max-width: 1200px; margin: 0 auto; padding: 80px 40px;
+    border-bottom: 1px solid var(--light-rule);
+  }
+  .career-arc-inner { position: relative; }
+  .arc-timeline {
+    display: flex; justify-content: space-between; position: relative;
+    padding-top: 40px; margin-top: 20px;
+  }
+  .arc-line {
+    position: absolute; top: 48px; left: 5%; right: 5%;
+    height: 3px; background: var(--light-rule); z-index: 0;
+  }
+  .arc-line::after {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; background: linear-gradient(90deg, var(--light-rule) 0%, var(--gold) 100%);
+  }
+  .arc-item {
+    position: relative; z-index: 1; text-align: center;
+    flex: 1; padding: 0 8px;
+  }
+  .arc-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--warm-white); border: 3px solid var(--mid-gray);
+    margin: 0 auto 16px; position: relative;
+  }
+  .arc-current .arc-dot {
+    background: var(--gold); border-color: var(--navy);
+    width: 18px; height: 18px;
+    box-shadow: 0 0 0 4px rgba(176, 138, 58, 0.2);
+  }
+  .arc-year {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+    color: var(--mid-gray); text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .arc-role {
+    font-family: 'Playfair Display', serif; font-size: 0.95rem;
+    font-weight: 700; line-height: 1.3; margin-bottom: 4px;
+  }
+  .arc-current .arc-role { color: var(--navy); }
+  .arc-institution {
+    font-size: 0.8rem; color: var(--mid-gray); font-style: italic;
+  }
+
   /* ── LEADERSHIP IMPACT ── */
   .leadership { max-width: 1200px; margin: 0 auto; padding: 80px 40px; border-bottom: 1px solid var(--light-rule); }
   .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1.5px solid var(--navy); }
@@ -124,9 +192,20 @@
   .highlight-value { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
 
   @media (max-width: 900px) {
+    section[style*="grid-template-columns:1fr auto"] { grid-template-columns:1fr !important; }
+    section[style*="grid-template-columns:1fr auto"] img[alt*="conversation"] { width:100% !important; height:200px !important; }
     .hero { grid-template-columns: 1fr; gap: 40px; }
     .hero h1 { font-size: 2.8rem; }
     .hero-image-area { max-width: 300px; }
+    .stats-inner { flex-wrap: wrap; gap: 24px; }
+    .stat-divider { display: none; }
+    .stat-item { flex: 0 0 45%; }
+    .stat-number { font-size: 2.4rem; }
+    .arc-timeline { flex-direction: column; gap: 24px; padding-top: 0; }
+    .arc-line { display: none; }
+    .arc-item { text-align: left; padding: 12px 0 12px 32px; border-left: 3px solid var(--light-rule); }
+    .arc-current { border-left-color: var(--gold); }
+    .arc-dot { display: none; }
     .impact-grid { grid-template-columns: 1fr 1fr; }
     .impact-item:nth-child(2n) { border-right: none; }
     .accomplishments-grid { grid-template-columns: 1fr; }
@@ -138,6 +217,10 @@
   @media (max-width: 600px) {
     .hero { padding: 40px 24px 30px; }
     .hero h1 { font-size: 2.2rem; }
+    .stats-strip { padding: 32px 24px; }
+    .stat-item { flex: 0 0 100%; }
+    .stat-number { font-size: 2rem; }
+    .career-arc { padding: 50px 24px; }
     .leadership, .expertise, .in-news, .bio-preview { padding: 50px 24px; }
     .accomplishments { padding: 40px 24px; }
     .impact-grid { grid-template-columns: 1fr; }
@@ -173,9 +256,90 @@
   </div>
   <div class="hero-image-area fade-in">
     <div class="hero-image-frame">
-      <img src="scott-portrait.jpg" alt="Scott Beaulier — Dean of Business, University of Wyoming">
+      <img src="scott-campus.jpg" alt="Scott Beaulier — Dean of Business, University of Wyoming">
     </div>
     <p class="hero-image-caption">H.A. (Dave) True Family Dean of Business, University of Wyoming</p>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number">15+</div>
+      <div class="stat-label">Years in University Leadership</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">1,500</div>
+      <div class="stat-label">Students Served</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">$12M+</div>
+      <div class="stat-label">Annual Budget Oversight</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Research Universities Led</div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL STATEMENT -->
+<section style="max-width:1200px; margin:0 auto; padding:60px 40px; border-bottom:1px solid var(--light-rule); display:grid; grid-template-columns:1fr auto; gap:60px; align-items:center;">
+  <div>
+    <blockquote style="font-family:'Playfair Display',serif; font-size:1.6rem; font-style:italic; line-height:1.5; color:var(--ink); border-left:4px solid var(--gold); padding:8px 0 8px 32px; margin:0;">
+      "Making academic degrees affordable and accessible does not mean sacrificing quality. It just requires responding to the modern marketplace and not being afraid to drop the status quo."
+    </blockquote>
+    <img src="scott-signature.png" alt="Scott Beaulier signature" style="height:36px; margin-top:20px; margin-left:32px; opacity:0.7;">
+  </div>
+  <div style="flex-shrink:0;">
+    <img src="scott-conversation.jpg" alt="Scott Beaulier in conversation" style="width:320px; height:220px; object-fit:cover; border-bottom:4px solid var(--gold);">
+  </div>
+</section>
+
+<!-- CAREER ARC -->
+<section class="career-arc">
+  <div class="career-arc-inner">
+    <div class="section-header">
+      <h2>Career Arc</h2>
+      <span class="section-label">Institutions & Roles</span>
+    </div>
+    <div class="arc-timeline">
+      <div class="arc-line"></div>
+      <div class="arc-item">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2004–2010</div>
+        <div class="arc-role">Faculty & Department Chair</div>
+        <div class="arc-institution">Mercer University & Beloit College</div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2010–2014</div>
+        <div class="arc-role">Executive Director & Division Chair</div>
+        <div class="arc-institution">Troy University</div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2015–2016</div>
+        <div class="arc-role">Executive Director, Center for Economic Liberty</div>
+        <div class="arc-institution">Arizona State University</div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2016–2022</div>
+        <div class="arc-role">Dean of Business</div>
+        <div class="arc-institution">North Dakota State University</div>
+      </div>
+      <div class="arc-item arc-current">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2022–Present</div>
+        <div class="arc-role">Dean of Business</div>
+        <div class="arc-institution">University of Wyoming</div>
+      </div>
+    </div>
   </div>
 </section>
 
