@@ -47,6 +47,16 @@
   .topic-card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; }
   .topic-card p { font-size:0.9rem; color:var(--mid-gray); line-height:1.7; }
 
+  .timely-section { max-width:1200px; margin:0 auto; padding:80px 40px; border-bottom:1px solid var(--light-rule); }
+  .timely-intro { font-size:1.05rem; line-height:1.8; color:var(--mid-gray); max-width:700px; margin-bottom:40px; }
+  .timely-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .timely-card { padding:28px; border:1.5px solid var(--light-rule); transition:all 0.3s; }
+  .timely-card:hover { border-color:var(--navy); transform:translateY(-2px); }
+  .timely-tag { font-family:'JetBrains Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--warm-white); background:var(--navy); display:inline-block; padding:3px 10px; margin-bottom:14px; }
+  .timely-card h3 { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; margin-bottom:10px; line-height:1.3; }
+  .timely-card p { font-size:0.88rem; color:var(--mid-gray); line-height:1.7; margin-bottom:14px; }
+  .timely-soundbite { font-family:'Playfair Display',serif; font-size:0.92rem; font-style:italic; color:var(--ink); border-left:3px solid var(--gold); padding-left:16px; line-height:1.5; }
+
   .coverage-section { max-width:1200px; margin:0 auto; padding:60px 40px; border-bottom:1px solid var(--light-rule); }
   .coverage-list { display:flex; flex-direction:column; }
   .coverage-item {
@@ -65,13 +75,14 @@
     .headshots-grid { grid-template-columns:1fr; }
     .topic-cards { grid-template-columns:1fr; }
     .topic-card { border-right:none; }
+    .timely-grid { grid-template-columns:1fr; }
     .coverage-item { grid-template-columns:1fr; gap:8px; }
     .quick-grab-inner { flex-direction:column; text-align:center; }
   }
 
   @media (max-width:600px) {
     .quick-grab { padding:20px 24px; }
-    .bios-section,.headshots-section,.topics-section,.coverage-section { padding:50px 24px; }
+    .bios-section,.headshots-section,.topics-section,.timely-section,.coverage-section { padding:50px 24px; }
     .headshots-grid { max-width:400px; }
   }
 </style>
@@ -93,14 +104,14 @@
   <div class="bio-versions">
     <div class="bio-version">
       <div class="bio-version-label">Short Bio <span class="word-count">~50 words</span></div>
-      <p>Scott Beaulier is the H.A. (Dave) True Family Dean of the College of Business at the University of Wyoming, an AACSB-accredited R1 institution. An economist by training (Ph.D., George Mason University), his work focuses on institutional innovation, student access and affordability, and connecting higher education with workforce needs.</p>
+      <p>Scott Beaulier is the H.A. (Dave) True Family Dean of Business and Professor of Economics at the University of Wyoming. An economist by training and an educational entrepreneur by practice, he focuses on how universities can be designed to better serve students, communities, and the public. A regular commentator on economic and education policy, his work has appeared in national and regional outlets.</p>
       <button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.querySelector('p').textContent).then(()=>{this.textContent='✓ Copied';setTimeout(()=>this.textContent='Copy to Clipboard',2000);})">Copy to Clipboard</button>
     </div>
     <div class="bio-version">
       <div class="bio-version-label">Full Bio <span class="word-count">~150 words</span></div>
-      <p>Scott Beaulier serves as the H.A. (Dave) True Family Dean of the College of Business at the University of Wyoming, an AACSB-accredited R1 public university where he oversees 75 faculty and staff, 1,500 students, and a $12M+ annual budget.</p>
-      <p>An economist by training, he holds a Ph.D. from George Mason University and has spent more than 15 years in higher education leadership across public research universities, including North Dakota State University, Arizona State University, and Troy University. His record includes growing enrollment during periods of national decline, expanding online programs, securing external resources for faculty and programming, and building partnerships between universities and employers.</p>
-      <p>Scott is committed to advancing student opportunity, institutional renewal, and regional economic prosperity. He is a frequent source for national media on economics, labor markets, and higher education policy.</p>
+      <p>Scott Beaulier is the H.A. (Dave) True Family Dean of Business and Professor of Economics at the University of Wyoming. An economist by training and an educational entrepreneur by practice, he focuses on how universities can be designed to better serve students, communities, and the public.</p>
+      <p>As dean, Beaulier oversees one of the nation's most distinctive public business schools, including nationally ranked online programs and a growing portfolio of industry partnerships, workforce initiatives, and philanthropic investments. His leadership has included major fundraising efforts, accreditation reviews, and strategic initiatives centered on academic excellence, student opportunity, and strengthening public trust in higher education.</p>
+      <p>Beaulier's research and writing draw on political economy, organizational theory, and the history of higher education, and he is a frequent speaker on issues related to academic freedom, governance, and accountability. A regular commentator on economic and education policy, his work has appeared in national and regional outlets, and he is often sought out for perspective on the economy, universities, and leadership in public institutions.</p>
       <button class="copy-btn" onclick="let t=Array.from(this.parentElement.querySelectorAll('p')).map(p=>p.textContent).join(' ');navigator.clipboard.writeText(t).then(()=>{this.textContent='✓ Copied';setTimeout(()=>this.textContent='Copy to Clipboard',2000);})">Copy to Clipboard</button>
     </div>
   </div>
@@ -122,6 +133,55 @@
     <div class="topic-card"><h3>Workforce Development & Economic Growth</h3><p>Bridging higher education and employer needs, regional economic development, and preparing graduates for the labor market.</p></div>
     <div class="topic-card"><h3>Economics & Household Finance</h3><p>Labor markets, consumer spending, retirement planning, and the economic forces shaping everyday financial decisions.</p></div>
     <div class="topic-card"><h3>University Governance & Strategy</h3><p>Accreditation, strategic planning, enrollment management, fundraising, and the organizational challenges facing public universities.</p></div>
+  </div>
+</section>
+
+<section class="timely-section">
+  <div class="section-header"><h2>Timely Topics</h2><span class="section-label">Current Story Angles</span></div>
+  <p class="timely-intro">Scott is available for commentary on these current economic and higher education issues. Each includes a ready-to-use soundbite.</p>
+  <div class="timely-grid">
+    <div class="timely-card">
+      <div class="timely-tag">Economy</div>
+      <h3>The Strong Economy That Doesn't Feel Strong</h3>
+      <p>Low unemployment and steady growth headlines are clashing with persistent consumer pessimism. The economy is unevenly experienced, and the disconnect is rational, not confusing.</p>
+      <div class="timely-soundbite">"On paper, the economy is strong. In real life, it depends on which side of the balance sheet you're on."</div>
+    </div>
+    <div class="timely-card">
+      <div class="timely-tag">Housing</div>
+      <h3>The Housing Market "Freeze"</h3>
+      <p>Millions of homeowners sitting on 3% mortgages won't move into 7% rates. Low inventory keeps prices elevated while first-time buyers are shut out. In Wyoming, in-migration and land constraints make it even tighter.</p>
+      <div class="timely-soundbite">"The housing market isn't broken — it's frozen. And frozen markets are incredibly hard to fix."</div>
+    </div>
+    <div class="timely-card">
+      <div class="timely-tag">Technology</div>
+      <h3>AI and the Labor Market</h3>
+      <p>The real story isn't job loss, it's job redesign. Companies are in "pause and test" mode, not mass replacement. Universities must pivot toward adaptability, not just degrees.</p>
+      <div class="timely-soundbite">"AI isn't eliminating work — it's rewriting the job description."</div>
+    </div>
+    <div class="timely-card">
+      <div class="timely-tag">Economy</div>
+      <h3>The Cost-of-Living Reality</h3>
+      <p>Prices rose roughly 20% cumulatively in recent years. Even at 2-3% inflation, those higher prices remain. Consumers are reacting to levels, not rates.</p>
+      <div class="timely-soundbite">"Inflation cooling just means prices are rising more slowly — not that they're going back to where they were."</div>
+    </div>
+    <div class="timely-card">
+      <div class="timely-tag">Economy</div>
+      <h3>Economic Mobility Is Slowing</h3>
+      <p>Americans are moving less, switching jobs less, and taking fewer risks. Housing lock-in, post-pandemic caution, and uncertainty are reducing the dynamism that drives growth.</p>
+      <div class="timely-soundbite">"A dynamic economy requires movement. Right now, too many people feel stuck."</div>
+    </div>
+    <div class="timely-card">
+      <div class="timely-tag">Higher Ed</div>
+      <h3>Universities as Economic Engines</h3>
+      <p>Growing scrutiny of higher ed ROI meets the reality that universities drive workforce pipelines, regional employment, and innovation ecosystems. UW serves all 23 Wyoming counties.</p>
+      <div class="timely-soundbite">"A university's success should be measured not just in degrees — but in jobs, businesses, and economic impact."</div>
+    </div>
+    <div class="timely-card">
+      <div class="timely-tag">Policy</div>
+      <h3>From Scarcity to Abundance Thinking</h3>
+      <p>Housing shortages, energy debates, and talent constraints all share a common thread: we've spent decades managing limits when we need to be expanding supply.</p>
+      <div class="timely-soundbite">"The biggest economic mistake we can make right now is acting like growth is fixed — it's not."</div>
+    </div>
   </div>
 </section>
 
