@@ -69,21 +69,24 @@
 
   /* ── CAREER ARC ── */
   .career-arc {
-    max-width: 1200px; margin: 0 auto; padding: 80px 40px;
+    background: var(--navy); padding: 80px 40px;
     border-bottom: 1px solid var(--light-rule);
   }
-  .career-arc-inner { position: relative; }
+  .career-arc-inner { position: relative; max-width: 1200px; margin: 0 auto; }
+  .career-arc .section-header { border-bottom-color: rgba(255,255,255,0.2); }
+  .career-arc .section-header h2 { color: var(--warm-white); }
+  .career-arc .section-header .section-label { color: var(--gold-light); }
   .arc-timeline {
     display: flex; justify-content: space-between; position: relative;
     padding-top: 40px; margin-top: 20px;
   }
   .arc-line {
     position: absolute; top: 48px; left: 5%; right: 5%;
-    height: 3px; background: var(--light-rule); z-index: 0;
+    height: 3px; background: rgba(255,255,255,0.15); z-index: 0;
   }
   .arc-line::after {
     content: ''; position: absolute; top: 0; left: 0;
-    width: 100%; height: 100%; background: linear-gradient(90deg, var(--light-rule) 0%, var(--gold) 100%);
+    width: 100%; height: 100%; background: linear-gradient(90deg, rgba(255,255,255,0.15) 0%, var(--gold) 100%);
   }
   .arc-item {
     position: relative; z-index: 1; text-align: center;
@@ -91,26 +94,26 @@
   }
   .arc-dot {
     width: 14px; height: 14px; border-radius: 50%;
-    background: var(--warm-white); border: 3px solid var(--mid-gray);
+    background: var(--navy); border: 3px solid rgba(255,255,255,0.4);
     margin: 0 auto 16px; position: relative;
   }
   .arc-current .arc-dot {
-    background: var(--gold); border-color: var(--navy);
+    background: var(--gold); border-color: var(--gold-light);
     width: 18px; height: 18px;
-    box-shadow: 0 0 0 4px rgba(176, 138, 58, 0.2);
+    box-shadow: 0 0 0 4px rgba(176, 138, 58, 0.3);
   }
   .arc-year {
     font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
-    color: var(--mid-gray); text-transform: uppercase; letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em;
     margin-bottom: 6px;
   }
   .arc-role {
     font-family: 'Playfair Display', serif; font-size: 0.95rem;
-    font-weight: 700; line-height: 1.3; margin-bottom: 4px;
+    font-weight: 700; line-height: 1.3; margin-bottom: 4px; color: var(--warm-white);
   }
-  .arc-current .arc-role { color: var(--navy); }
+  .arc-current .arc-role { color: var(--gold-light); }
   .arc-institution {
-    font-size: 0.8rem; color: var(--mid-gray); font-style: italic;
+    font-size: 0.8rem; color: rgba(255,255,255,0.5); font-style: italic;
   }
 
   /* ── LEADERSHIP IMPACT ── */
@@ -204,7 +207,7 @@
     .stat-number { font-size: 2.4rem; }
     .arc-timeline { flex-direction: column; gap: 24px; padding-top: 0; }
     .arc-line { display: none; }
-    .arc-item { text-align: left; padding: 12px 0 12px 32px; border-left: 3px solid var(--light-rule); }
+    .arc-item { text-align: left; padding: 12px 0 12px 32px; border-left: 3px solid rgba(255,255,255,0.15); }
     .arc-current { border-left-color: var(--gold); }
     .arc-dot { display: none; }
     .impact-grid { grid-template-columns: 1fr 1fr; }
