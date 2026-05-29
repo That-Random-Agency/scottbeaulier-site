@@ -50,27 +50,31 @@
   .principle-list li strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 4px; }
   .principle-list li span { color: var(--mid-gray); font-size: 0.88rem; }
 
-  .pillars { max-width: 1200px; margin: 0 auto; padding: 80px 40px; border-bottom: 1px solid var(--light-rule); }
+  .pillars { padding: 80px 40px; background: var(--navy); }
+  .pillars .section-header { border-bottom-color: rgba(255,255,255,0.2); max-width: 1200px; margin: 0 auto 50px; }
+  .pillars .section-header h2 { color: var(--warm-white); }
+  .pillars .section-header .section-label { color: var(--gold-light); }
 
   .pillars-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1.5px solid var(--navy);
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1.5px solid rgba(255,255,255,0.2);
+    max-width: 1200px; margin: 0 auto;
   }
 
   .pillar-item {
-    padding: 40px 28px; border-right: 1px solid var(--light-rule);
+    padding: 40px 28px; border-right: 1px solid rgba(255,255,255,0.1);
     text-align: center; transition: background 0.3s;
   }
 
   .pillar-item:last-child { border-right: none; }
-  .pillar-item:hover { background: var(--cream); }
+  .pillar-item:hover { background: rgba(255,255,255,0.05); }
 
   .pillar-number {
     font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900;
     color: var(--gold); margin-bottom: 16px; line-height: 1;
   }
 
-  .pillar-item h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; }
-  .pillar-item p { font-size: 0.88rem; color: var(--mid-gray); line-height: 1.65; }
+  .pillar-item h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; color: var(--warm-white); }
+  .pillar-item p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
 
   .photo-break {
     max-width: 1200px; margin: 0 auto; padding: 0 40px;
@@ -89,7 +93,7 @@
     .philosophy-sidebar { position: static; }
     .pillars-grid { grid-template-columns: 1fr 1fr; }
     .pillar-item:nth-child(2) { border-right: none; }
-    .pillar-item:nth-child(1), .pillar-item:nth-child(2) { border-bottom: 1px solid var(--light-rule); }
+    .pillar-item:nth-child(1), .pillar-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
     .photo-break { grid-template-columns: 1fr; }
   }
 
@@ -97,7 +101,7 @@
     .philosophy-content { padding: 50px 24px; }
     .pillars { padding: 50px 24px; }
     .pillars-grid { grid-template-columns: 1fr; }
-    .pillar-item { border-right: none; border-bottom: 1px solid var(--light-rule); }
+    .pillar-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
     .pillar-item:last-child { border-bottom: none; }
     .inline-quote { font-size: 1.3rem; }
   }
