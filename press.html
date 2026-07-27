@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,14 +37,17 @@
   .headshot-download { font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--navy); text-decoration:none; transition:color 0.3s; }
   .headshot-download:hover { color:var(--gold); }
 
-  .topics-section { max-width:1200px; margin:0 auto; padding:80px 40px; border-bottom:1px solid var(--light-rule); }
-  .topics-intro { font-size:1.05rem; line-height:1.8; color:var(--mid-gray); max-width:700px; margin-bottom:40px; }
-  .topic-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:0; border:1.5px solid var(--navy); }
-  .topic-card { padding:32px; border-right:1px solid var(--light-rule); border-bottom:1px solid var(--light-rule); transition:background 0.3s; }
-  .topic-card:hover { background:var(--cream); }
+  .topics-section { padding:80px 40px; background:var(--navy); }
+  .topics-section .section-header { max-width:1200px; margin:0 auto 50px; border-bottom-color:rgba(255,255,255,0.2); }
+  .topics-section .section-header h2 { color:var(--warm-white); }
+  .topics-section .section-header .section-label { color:var(--gold-light); }
+  .topics-intro { font-size:1.05rem; line-height:1.8; color:rgba(255,255,255,0.6); max-width:1200px; margin:0 auto 40px; }
+  .topic-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:0; border:1.5px solid rgba(255,255,255,0.2); max-width:1200px; margin:0 auto; }
+  .topic-card { padding:32px; border-right:1px solid rgba(255,255,255,0.1); border-bottom:1px solid rgba(255,255,255,0.1); transition:background 0.3s; }
+  .topic-card:hover { background:rgba(255,255,255,0.05); }
   .topic-card:nth-child(2n) { border-right:none; }
-  .topic-card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; }
-  .topic-card p { font-size:0.9rem; color:var(--mid-gray); line-height:1.7; }
+  .topic-card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; color:var(--warm-white); }
+  .topic-card p { font-size:0.9rem; color:rgba(255,255,255,0.6); line-height:1.7; }
 
   .timely-section { max-width:1200px; margin:0 auto; padding:80px 40px; border-bottom:1px solid var(--light-rule); }
   .timely-intro { font-size:1.05rem; line-height:1.8; color:var(--mid-gray); max-width:700px; margin-bottom:40px; }
@@ -115,8 +117,8 @@
 <section class="headshots-section">
   <div class="section-header"><h2>Headshots</h2><span class="section-label">High Resolution</span></div>
   <div class="headshots-grid">
-    <div class="headshot-card fade-in"><div class="headshot-image"><img src="scott-portrait.jpg" alt="Scott Beaulier — Professional Portrait"></div><div class="headshot-info"><div><div class="headshot-label">Professional Portrait</div><div class="headshot-meta">Hi-Res · JPG</div></div><a href="scott-portrait.jpg" download class="headshot-download">↓ Download</a></div></div>
-    <div class="headshot-card fade-in"><div class="headshot-image"><img src="scott-portrait-2.jpg" alt="Scott Beaulier — Editorial Portrait"></div><div class="headshot-info"><div><div class="headshot-label">Editorial / Outdoor</div><div class="headshot-meta">Hi-Res · JPG</div></div><a href="scott-portrait-2.jpg" download class="headshot-download">↓ Download</a></div></div>
+    <div class="headshot-card fade-in"><div class="headshot-image"><img src="scott-headshot-interior.jpg" alt="Scott Beaulier — Professional Portrait"></div><div class="headshot-info"><div><div class="headshot-label">Professional Portrait</div><div class="headshot-meta">Hi-Res · JPG</div></div><a href="scott-headshot-interior.jpg" download class="headshot-download">↓ Download</a></div></div>
+    <div class="headshot-card fade-in"><div class="headshot-image"><img src="scott-headshot-outdoor.jpg" alt="Scott Beaulier — Editorial Portrait"></div><div class="headshot-info"><div><div class="headshot-label">Editorial / Outdoor</div><div class="headshot-meta">Hi-Res · JPG</div></div><a href="scott-headshot-outdoor.jpg" download class="headshot-download">↓ Download</a></div></div>
   </div>
 </section>
 
@@ -183,6 +185,11 @@
 <section class="coverage-section">
   <div class="section-header"><h2>Recent Coverage</h2><span class="section-label">In the News</span></div>
   <div class="coverage-list">
+    <a class="coverage-item" href="https://money.com/wages-not-keeping-up-with-cost-of-living/" target="_blank"><span class="coverage-date">Jul 2026</span><span class="coverage-title">Most Workers Say Their Raises Aren't Keeping Up With the Cost of Living</span><span class="coverage-source">Money →</span></a>
+    <a class="coverage-item" href="https://www.washingtontimes.com/news/2026/jul/9/purdue-shares-first-nation-ai-graduation-requirements-fall-semester/" target="_blank"><span class="coverage-date">Jul 2026</span><span class="coverage-title">Purdue Shares First-in-the-Nation AI Graduation Requirements for Fall Semester</span><span class="coverage-source">Washington Times →</span></a>
+    <a class="coverage-item" href="https://www.washingtontimes.com/news/2026/jul/1/vanderbilt-report-liberal-bias-humanities-sparks-outrage-higher/" target="_blank"><span class="coverage-date">Jul 2026</span><span class="coverage-title">Vanderbilt Report on Liberal Bias in Humanities Sparks Outrage in Higher Education</span><span class="coverage-source">Washington Times →</span></a>
+    <a class="coverage-item" href="https://www.scrippsnews.com/us-news/raising-the-minimum-wage-helps-some-workers-but-economists-warn-it-could-hurt-others" target="_blank"><span class="coverage-date">Jun 2026</span><span class="coverage-title">Raising the Minimum Wage Helps Some Workers, but Economists Warn It Could Hurt Others</span><span class="coverage-source">Scripps News →</span></a>
+    <a class="coverage-item" href="https://www.newsweek.com/these-gen-xers-put-off-buying-a-home-now-they-see-how-good-they-had-it-12026886" target="_blank"><span class="coverage-date">2026</span><span class="coverage-title">These Gen Xers Put Off Buying a Home — Now They See How Good They Had It</span><span class="coverage-source">Newsweek →</span></a>
     <a class="coverage-item" href="https://www.washingtontimes.com/news/2026/may/27/number-teens-working-summer-jobs-hit-8-decade-low/" target="_blank"><span class="coverage-date">May 2026</span><span class="coverage-title">Number of Teens Working Summer Jobs Hit 8-Decade Low</span><span class="coverage-source">Washington Times →</span></a>
     <a class="coverage-item" href="https://finance.yahoo.com/markets/articles/don-t-let-retirement-grocery-150006067.html" target="_blank"><span class="coverage-date">Apr 2026</span><span class="coverage-title">Don't Let Retirement Grocery Bills Ruin You — Why They're Rising and Fixes To Try</span><span class="coverage-source">Yahoo Finance →</span></a>
     <a class="coverage-item" href="https://www.msn.com/en-us/money/personalfinance/don-t-let-retirement-grocery-bills-ruin-you-why-they-re-rising-and-fixes-to-try-asap/ar-AA20XqsU" target="_blank"><span class="coverage-date">Apr 2026</span><span class="coverage-title">Don't Let Retirement Grocery Bills Ruin You — Why They're Rising and Fixes To Try</span><span class="coverage-source">MSN →</span></a>
