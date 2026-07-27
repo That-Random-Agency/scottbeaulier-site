@@ -19,7 +19,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   background: var(--warm-white);
   color: var(--ink);
   line-height: 1.6;
@@ -46,7 +46,7 @@ body {
 }
 
 .site-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Young Serif', serif;
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -56,7 +56,7 @@ body {
 }
 
 .top-bar nav a {
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -95,13 +95,13 @@ body {
 }
 
 .section-header h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Young Serif', serif;
   font-size: 2.2rem;
   font-weight: 900;
 }
 
 .section-header .section-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -123,7 +123,7 @@ body {
 }
 
 .page-hero .hero-kicker {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -143,7 +143,7 @@ body {
 }
 
 .page-hero h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Young Serif', serif;
   font-size: 3.8rem;
   font-weight: 900;
   line-height: 1.05;
@@ -173,7 +173,7 @@ body {
 }
 
 .pullquote-banner blockquote {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Young Serif', serif;
   font-size: 2rem;
   font-style: italic;
   line-height: 1.5;
@@ -189,7 +189,7 @@ body {
 
 .pullquote-banner .attribution {
   margin-top: 16px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -210,7 +210,7 @@ body {
 }
 
 .media-cta h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Young Serif', serif;
   font-size: 2.5rem;
   font-weight: 900;
   margin-bottom: 16px;
@@ -231,7 +231,7 @@ body {
 }
 
 .cta-btn {
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.82rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -264,7 +264,7 @@ body {
 .view-all-link {
   display: inline-block;
   margin-top: 32px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;

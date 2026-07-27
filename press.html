@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Press & Media — Scott Beaulier</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <style>
   .quick-grab { background:var(--navy); color:var(--warm-white); padding:24px 40px; }
   .quick-grab-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
-  .quick-grab-label { font-family:'JetBrains Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--gold-light); }
+  .quick-grab-label { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--gold-light); }
   .quick-grab-links { display:flex; gap:16px; flex-wrap:wrap; }
   .quick-grab-links a { font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:var(--warm-white); text-decoration:none; padding:8px 20px; border:1.5px solid rgba(255,255,255,0.3); transition:all 0.3s; }
   .quick-grab-links a:hover { background:var(--warm-white); color:var(--navy); border-color:var(--warm-white); }
@@ -18,10 +18,10 @@
   .bios-section { max-width:1200px; margin:0 auto; padding:80px 40px; border-bottom:1px solid var(--light-rule); }
   .bio-versions { display:grid; grid-template-columns:1fr 1fr; gap:50px; }
   .bio-version { background:var(--cream); padding:36px; }
-  .bio-version-label { font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); margin-bottom:16px; display:flex; justify-content:space-between; }
-  .word-count { font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--mid-gray); }
+  .bio-version-label { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); margin-bottom:16px; display:flex; justify-content:space-between; }
+  .word-count { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--mid-gray); }
   .bio-version p { font-size:0.95rem; line-height:1.8; color:#444; margin-bottom:12px; }
-  .copy-btn { font-family:'JetBrains Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; background:var(--navy); color:var(--warm-white); border:none; padding:10px 20px; cursor:pointer; transition:background 0.3s; }
+  .copy-btn { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; background:var(--navy); color:var(--warm-white); border:none; padding:10px 20px; cursor:pointer; transition:background 0.3s; }
   .copy-btn:hover { background:var(--gold); }
 
   .headshots-section { max-width:1200px; margin:0 auto; padding:80px 40px; border-bottom:1px solid var(--light-rule); }
@@ -33,8 +33,8 @@
   .headshot-card:hover .headshot-image img { filter:grayscale(0%); }
   .headshot-info { padding:20px; display:flex; justify-content:space-between; align-items:center; }
   .headshot-label { font-size:0.82rem; font-weight:600; }
-  .headshot-meta { font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:var(--mid-gray); }
-  .headshot-download { font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--navy); text-decoration:none; transition:color 0.3s; }
+  .headshot-meta { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:var(--mid-gray); }
+  .headshot-download { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--navy); text-decoration:none; transition:color 0.3s; }
   .headshot-download:hover { color:var(--gold); }
 
   .topics-section { padding:80px 40px; background:var(--navy); }
@@ -46,7 +46,7 @@
   .topic-card { padding:32px; border-right:1px solid rgba(255,255,255,0.1); border-bottom:1px solid rgba(255,255,255,0.1); transition:background 0.3s; }
   .topic-card:hover { background:rgba(255,255,255,0.05); }
   .topic-card:nth-child(2n) { border-right:none; }
-  .topic-card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; color:var(--warm-white); }
+  .topic-card h3 { font-family:'Young Serif',serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; color:var(--warm-white); }
   .topic-card p { font-size:0.9rem; color:rgba(255,255,255,0.6); line-height:1.7; }
 
   .timely-section { max-width:1200px; margin:0 auto; padding:80px 40px; border-bottom:1px solid var(--light-rule); }
@@ -54,10 +54,10 @@
   .timely-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
   .timely-card { padding:28px; border:1.5px solid var(--light-rule); transition:all 0.3s; }
   .timely-card:hover { border-color:var(--navy); transform:translateY(-2px); }
-  .timely-tag { font-family:'JetBrains Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--warm-white); background:var(--navy); display:inline-block; padding:3px 10px; margin-bottom:14px; }
-  .timely-card h3 { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; margin-bottom:10px; line-height:1.3; }
+  .timely-tag { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--warm-white); background:var(--navy); display:inline-block; padding:3px 10px; margin-bottom:14px; }
+  .timely-card h3 { font-family:'Young Serif',serif; font-size:1.1rem; font-weight:700; margin-bottom:10px; line-height:1.3; }
   .timely-card p { font-size:0.88rem; color:var(--mid-gray); line-height:1.7; margin-bottom:14px; }
-  .timely-soundbite { font-family:'Playfair Display',serif; font-size:0.92rem; font-style:italic; color:var(--ink); border-left:3px solid var(--gold); padding-left:16px; line-height:1.5; }
+  .timely-soundbite { font-family:'Young Serif',serif; font-size:0.92rem; font-style:italic; color:var(--ink); border-left:3px solid var(--gold); padding-left:16px; line-height:1.5; }
 
   .coverage-section { max-width:1200px; margin:0 auto; padding:60px 40px; border-bottom:1px solid var(--light-rule); }
   .coverage-list { display:flex; flex-direction:column; }
@@ -68,8 +68,8 @@
   }
   .coverage-item:hover { padding-left:12px; border-bottom-color:var(--navy); }
   .coverage-item:last-child { border-bottom:none; }
-  .coverage-date { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--mid-gray); }
-  .coverage-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; line-height:1.3; }
+  .coverage-date { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--mid-gray); }
+  .coverage-title { font-family:'Young Serif',serif; font-size:1.1rem; font-weight:700; line-height:1.3; }
   .coverage-source { font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--navy); white-space:nowrap; }
 
   @media (max-width:900px) {
@@ -91,12 +91,17 @@
 </head>
 <body>
 
-<header class="top-bar"><div class="top-bar-inner"><a href="index.html" class="site-name" style="text-decoration:none; display:flex; flex-direction:column; gap:3px; line-height:1;"><span style="font-family:'Playfair Display',serif; font-size:1.35rem; font-weight:900; letter-spacing:0.06em; text-transform:uppercase; color:var(--navy);">Scott Beaulier</span><span style="width:100%; height:2px; background:var(--gold); display:block;"></span></a><nav><a href="index.html">Home</a><a href="philosophy.html">Philosophy</a><a href="cv.html">CV</a><a href="press.html" class="active">Press</a><a href="contact.html">Contact</a></nav></div></header>
+<header class="top-bar"><div class="top-bar-inner"><a href="index.html" class="site-name" style="text-decoration:none; display:flex; flex-direction:column; gap:3px; line-height:1;"><span style="font-family:'Young Serif',serif; font-size:1.35rem; font-weight:900; letter-spacing:0.06em; text-transform:uppercase; color:var(--navy);">Scott Beaulier</span><span style="width:100%; height:2px; background:var(--gold); display:block;"></span></a><nav><a href="index.html">Home</a><a href="philosophy.html">Philosophy</a><a href="cv.html">CV</a><a href="press.html" class="active">Press</a><a href="contact.html">Contact</a></nav></div></header>
 
-<section class="page-hero">
-  <div class="hero-kicker">Press & Media</div>
-  <h1>Media <em>Resources</em></h1>
-  <p class="hero-subtitle">Official bios, headshots, and background for journalists and event organizers covering higher education, economics, and workforce development.</p>
+<section class="page-hero" style="position:relative; padding:0; max-width:100%; overflow:hidden; border-bottom:none;">
+  <div style="width:100%; height:420px; overflow:hidden; position:relative;">
+    <img src="scott-headshot-interior.jpg" alt="Scott Beaulier" style="width:100%; height:100%; object-fit:cover; object-position:center 25%; filter:brightness(0.4);">
+    <div style="position:absolute; bottom:0; left:0; right:0; padding:50px 40px 40px; max-width:1200px; margin:0 auto;">
+      <div class="hero-kicker" style="color:var(--gold-light);">Press & Media</div>
+      <h1 style="color:var(--warm-white); max-width:600px;">Media <em style="color:var(--gold-light);">Resources</em></h1>
+      <p class="hero-subtitle" style="color:rgba(255,255,255,0.75); max-width:600px;">Official bios, headshots, and background for journalists and event organizers covering higher education, economics, and workforce development.</p>
+    </div>
+  </div>
 </section>
 
 <section class="quick-grab"><div class="quick-grab-inner"><span class="quick-grab-label">Downloads</span><div class="quick-grab-links"><a href="scott-portrait.jpg" download>↓ Headshot</a><a href="#">↓ Full Bio</a><a href="#">↓ CV (PDF)</a></div></div></section>

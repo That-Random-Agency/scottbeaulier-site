@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CV — Scott Beaulier</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <style>
   .cv-intro { max-width:1200px; margin:0 auto; padding:40px 40px 60px; display:grid; grid-template-columns:280px 1fr; gap:60px; border-bottom:1px solid var(--light-rule); }
   .cv-photo { aspect-ratio:3/4; background:var(--cream); overflow:hidden; position:sticky; top:80px; align-self:start; border-bottom:4px solid var(--gold); }
   .cv-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; }
-  .cv-header-info h2 { font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; margin-bottom:8px; }
+  .cv-header-info h2 { font-family:'Young Serif',serif; font-size:2rem; font-weight:900; margin-bottom:8px; }
   .cv-header-info .cv-title { font-size:1.05rem; color:var(--mid-gray); font-style:italic; margin-bottom:24px; }
   .cv-contact-row { display:flex; gap:32px; flex-wrap:wrap; margin-bottom:24px; }
   .cv-contact-item { font-size:0.85rem; color:var(--mid-gray); }
-  .cv-contact-item strong { display:block; font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--navy); margin-bottom:4px; }
+  .cv-contact-item strong { display:block; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--navy); margin-bottom:4px; }
   .cv-contact-item a { color:var(--ink); text-decoration:none; border-bottom:1px solid var(--light-rule); transition:border-color 0.3s; }
   .cv-contact-item a:hover { border-color:var(--gold); }
   .cv-summary { font-size:1rem; line-height:1.8; color:#444; padding:24px 0; border-top:1px solid var(--light-rule); }
@@ -24,37 +24,37 @@
 
   .cv-section { max-width:1200px; margin:0 auto; padding:60px 40px; border-bottom:1px solid var(--light-rule); }
   .cv-section-header { display:flex; align-items:baseline; gap:16px; margin-bottom:36px; padding-bottom:12px; border-bottom:2px solid var(--ink); }
-  .cv-section-header h2 { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:900; }
-  .cv-section-header span { font-family:'JetBrains Mono',monospace; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); }
+  .cv-section-header h2 { font-family:'Young Serif',serif; font-size:1.8rem; font-weight:900; }
+  .cv-section-header span { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); }
 
   .cv-timeline { display:flex; flex-direction:column; }
   .cv-entry { display:grid; grid-template-columns:180px 1fr; gap:40px; padding:28px 0; border-bottom:1px solid var(--light-rule); transition:all 0.3s; }
   .cv-entry:hover { padding-left:8px; }
   .cv-entry:last-child { border-bottom:none; }
-  .cv-entry-dates { font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--mid-gray); padding-top:4px; }
-  .cv-entry-content h3 { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; margin-bottom:4px; }
+  .cv-entry-dates { font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--mid-gray); padding-top:4px; }
+  .cv-entry-content h3 { font-family:'Young Serif',serif; font-size:1.2rem; font-weight:700; margin-bottom:4px; }
   .cv-entry-content .institution { font-size:0.92rem; color:var(--navy); font-weight:600; margin-bottom:8px; }
   .cv-entry-content .description { font-size:0.92rem; color:var(--mid-gray); line-height:1.7; }
 
   .accomplishment-block { background:var(--cream); padding:40px; margin-top:40px; border-top:4px solid var(--gold); }
-  .accomplishment-block h3 { font-family:'JetBrains Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); margin-bottom:20px; }
+  .accomplishment-block h3 { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); margin-bottom:20px; }
   .accomplishment-block p { font-size:0.95rem; line-height:1.8; color:#444; margin-bottom:12px; }
   .accomplishment-block p:last-child { margin-bottom:0; }
 
   .education-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; }
   .education-card { background:var(--cream); padding:36px; border-top:4px solid var(--gold); }
-  .education-card .degree-type { font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); margin-bottom:12px; }
-  .education-card h3 { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:900; margin-bottom:4px; }
+  .education-card .degree-type { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.2em; color:var(--navy); margin-bottom:12px; }
+  .education-card h3 { font-family:'Young Serif',serif; font-size:1.4rem; font-weight:900; margin-bottom:4px; }
   .education-card .school { font-size:1rem; font-weight:600; color:var(--mid-gray); margin-bottom:8px; }
-  .education-card .year { font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--mid-gray); }
+  .education-card .year { font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--mid-gray); }
 
   .affiliations-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1.5px solid var(--navy); }
   .affiliation-item { padding:20px 24px; border-right:1px solid var(--light-rule); border-bottom:1px solid var(--light-rule); display:flex; justify-content:space-between; align-items:baseline; transition:background 0.3s; }
   .affiliation-item:hover { background:var(--cream); }
   .affiliation-item:nth-child(2n) { border-right:none; }
-  .affiliation-name { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; }
+  .affiliation-name { font-family:'Young Serif',serif; font-size:1rem; font-weight:700; }
   .affiliation-role { font-size:0.82rem; color:var(--mid-gray); margin-top:2px; }
-  .affiliation-dates { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--mid-gray); white-space:nowrap; }
+  .affiliation-dates { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--mid-gray); white-space:nowrap; }
 
   @media (max-width:900px) {
     .cv-intro { grid-template-columns:1fr; gap:32px; }
@@ -74,7 +74,7 @@
 </head>
 <body>
 
-<header class="top-bar"><div class="top-bar-inner"><a href="index.html" class="site-name" style="text-decoration:none; display:flex; flex-direction:column; gap:3px; line-height:1;"><span style="font-family:'Playfair Display',serif; font-size:1.35rem; font-weight:900; letter-spacing:0.06em; text-transform:uppercase; color:var(--navy);">Scott Beaulier</span><span style="width:100%; height:2px; background:var(--gold); display:block;"></span></a><nav><a href="index.html">Home</a><a href="philosophy.html">Philosophy</a><a href="cv.html" class="active">CV</a><a href="press.html">Press</a><a href="contact.html">Contact</a></nav></div></header>
+<header class="top-bar"><div class="top-bar-inner"><a href="index.html" class="site-name" style="text-decoration:none; display:flex; flex-direction:column; gap:3px; line-height:1;"><span style="font-family:'Young Serif',serif; font-size:1.35rem; font-weight:900; letter-spacing:0.06em; text-transform:uppercase; color:var(--navy);">Scott Beaulier</span><span style="width:100%; height:2px; background:var(--gold); display:block;"></span></a><nav><a href="index.html">Home</a><a href="philosophy.html">Philosophy</a><a href="cv.html" class="active">CV</a><a href="press.html">Press</a><a href="contact.html">Contact</a></nav></div></header>
 
 <section class="page-hero" style="position:relative; padding:0; max-width:100%; overflow:hidden; border-bottom:none;">
   <div style="width:100%; height:420px; overflow:hidden; position:relative;">
