@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scott Beaulier — Economist & University Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .hero {
+    max-width: 1200px; margin: 0 auto; padding: 60px 40px 40px;
+    display: grid; grid-template-columns: 1fr 400px; gap: 60px;
+    align-items: start; border-bottom: 1px solid var(--light-rule);
+  }
+  .hero-text { padding-top: 20px; }
+  .hero-kicker {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.2em; color: var(--navy);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+  }
+  .hero-kicker::before { content: ''; width: 30px; height: 2px; background: var(--gold); }
+  .hero h1 {
+    font-family: 'Young Serif', serif; font-size: 3.8rem; font-weight: 900;
+    line-height: 1.05; margin-bottom: 24px; letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: var(--navy); }
+  .hero-subtitle {
+    font-size: 1.15rem; line-height: 1.8; color: var(--mid-gray);
+    max-width: 580px; margin-bottom: 32px; font-weight: 400;
+  }
+  .hero-meta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-meta a {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--navy); padding: 8px 16px; border: 1.5px solid var(--navy);
+    transition: all 0.3s; text-decoration: none;
+  }
+  .hero-meta a:hover { background: var(--navy); color: var(--warm-white); }
+  .hero-image-area { position: relative; }
+  .hero-image-frame {
+    aspect-ratio: 3/4; background: var(--cream); overflow: hidden;
+    border-bottom: 4px solid var(--gold);
+  }
+  .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .hero-image-caption { margin-top: 12px; font-size: 0.75rem; color: var(--mid-gray); font-style: italic; }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--navy); padding: 48px 40px;
+    border-bottom: 1px solid var(--light-rule);
+  }
+  .stats-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center; gap: 0;
+  }
+  .stat-item { flex: 1; text-align: center; padding: 0 32px; }
+  .stat-number {
+    font-family: 'Young Serif', serif; font-size: 3.2rem; font-weight: 900;
+    color: var(--warm-white); line-height: 1; margin-bottom: 8px;
+  }
+  .stat-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+    text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.6);
+  }
+  .stat-divider {
+    width: 1px; height: 60px; background: rgba(255,255,255,0.2); flex-shrink: 0;
+  }
+
+  /* ── CAREER ARC ── */
+  .career-arc {
+    background: var(--navy); padding: 80px 40px;
+    border-bottom: 1px solid var(--light-rule);
+  }
+  .career-arc-inner { position: relative; max-width: 1200px; margin: 0 auto; }
+  .career-arc .section-header { border-bottom-color: rgba(255,255,255,0.2); }
+  .career-arc .section-header h2 { color: var(--warm-white); }
+  .career-arc .section-header .section-label { color: var(--gold-light); }
+  .arc-timeline {
+    display: flex; justify-content: space-between; position: relative;
+    padding-top: 40px; margin-top: 20px;
+  }
+  .arc-line {
+    position: absolute; top: 48px; left: 5%; right: 5%;
+    height: 3px; background: rgba(255,255,255,0.15); z-index: 0;
+  }
+  .arc-line::after {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; background: linear-gradient(90deg, rgba(255,255,255,0.15) 0%, var(--gold) 100%);
+  }
+  .arc-item {
+    position: relative; z-index: 1; text-align: center;
+    flex: 1; padding: 0 8px;
+  }
+  .arc-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--navy); border: 3px solid rgba(255,255,255,0.4);
+    margin: 0 auto 16px; position: relative;
+  }
+  .arc-current .arc-dot {
+    background: var(--gold); border-color: var(--gold-light);
+    width: 18px; height: 18px;
+    box-shadow: 0 0 0 4px rgba(176, 138, 58, 0.3);
+  }
+  .arc-year {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+    color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .arc-role {
+    font-family: 'Young Serif', serif; font-size: 0.95rem;
+    font-weight: 700; line-height: 1.3; margin-bottom: 4px; color: var(--warm-white);
+  }
+  .arc-current .arc-role { color: var(--gold-light); }
+  .arc-institution {
+    font-size: 0.8rem; color: rgba(255,255,255,0.5); font-style: italic;
+  }
+
+  /* ── LEADERSHIP IMPACT ── */
+  .leadership { max-width: 1200px; margin: 0 auto; padding: 80px 40px; border-bottom: 1px solid var(--light-rule); }
+  .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1.5px solid var(--navy); }
+  .impact-item {
+    padding: 32px 28px; border-right: 1px solid var(--light-rule);
+    border-bottom: 1px solid var(--light-rule); transition: background 0.3s;
+  }
+  .impact-item:hover { background: var(--cream); }
+  .impact-item:nth-child(3n) { border-right: none; }
+  .impact-item:nth-last-child(-n+3) { border-bottom: none; }
+  .impact-number {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--gold);
+    text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 10px;
+  }
+  .impact-item h3 { font-family: 'Young Serif', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+  .impact-item p { font-size: 0.85rem; color: var(--mid-gray); line-height: 1.6; }
+
+  /* ── ACCOMPLISHMENTS STRIP ── */
+  .accomplishments {
+    background: var(--navy); color: var(--warm-white); padding: 60px 40px;
+  }
+  .accomplishments-inner { max-width: 1200px; margin: 0 auto; }
+  .accomplishments-header {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; text-transform: uppercase;
+    letter-spacing: 0.2em; color: var(--gold-light); margin-bottom: 36px;
+  }
+  .accomplishments-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 60px; }
+  .accomplishment-entry { padding-left: 20px; border-left: 3px solid var(--gold); }
+  .accomplishment-entry p {
+    font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.85);
+  }
+  .accomplishment-entry .acc-context {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: rgba(255,255,255,0.45); margin-top: 8px;
+  }
+
+  /* ── EXPERTISE ── */
+  .expertise { max-width: 1200px; margin: 0 auto; padding: 80px 40px; border-bottom: 1px solid var(--light-rule); }
+  .expertise-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .expertise-card {
+    padding: 32px; background: var(--cream); border-left: 4px solid var(--gold); transition: transform 0.3s;
+  }
+  .expertise-card:hover { transform: translateY(-4px); }
+  .expertise-card h3 { font-family: 'Young Serif', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+  .expertise-card p { font-size: 0.9rem; color: var(--mid-gray); line-height: 1.7; }
+
+  /* ── IN THE NEWS ── */
+  .in-news { max-width: 1200px; margin: 0 auto; padding: 60px 40px; border-bottom: 1px solid var(--light-rule); }
+  .news-list { display: flex; flex-direction: column; }
+  .news-item {
+    display: grid; grid-template-columns: 100px 1fr auto; gap: 24px;
+    align-items: baseline; padding: 20px 0; border-bottom: 1px solid var(--light-rule);
+    text-decoration: none; color: var(--ink); transition: all 0.3s;
+  }
+  .news-item:hover { padding-left: 12px; border-bottom-color: var(--navy); }
+  .news-item:last-child { border-bottom: none; }
+  .news-date { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--mid-gray); }
+  .news-title { font-family: 'Young Serif', serif; font-size: 1.15rem; font-weight: 700; line-height: 1.3; }
+  .news-source { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); white-space: nowrap; }
+
+  /* ── BIO ── */
+  .bio-preview {
+    max-width: 1200px; margin: 0 auto; padding: 80px 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    border-bottom: 1px solid var(--light-rule);
+  }
+  .bio-preview h2 { font-family: 'Young Serif', serif; font-size: 2.2rem; font-weight: 900; margin-bottom: 24px; }
+  .bio-text { font-size: 1.05rem; line-height: 1.85; color: #444; }
+  .bio-text p { margin-bottom: 20px; }
+  .bio-highlights { background: var(--cream); padding: 40px; border-top: 4px solid var(--gold); }
+  .bio-highlights h3 {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.2em; color: var(--navy); margin-bottom: 28px;
+  }
+  .highlight-item { padding: 16px 0; border-bottom: 1px solid var(--light-rule); }
+  .highlight-item:last-child { border-bottom: none; }
+  .highlight-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-gray); font-weight: 600; margin-bottom: 4px; }
+  .highlight-value { font-family: 'Young Serif', serif; font-size: 1.1rem; font-weight: 700; }
+
+  @media (max-width: 900px) {
+    section[style*="grid-template-columns:1fr auto"] { grid-template-columns:1fr !important; }
+    section[style*="grid-template-columns:1fr auto"] img[alt*="conversation"] { width:100% !important; height:200px !important; }
+    .hero { grid-template-columns: 1fr; gap: 40px; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero-image-area { max-width: 300px; }
+    .stats-inner { flex-wrap: wrap; gap: 24px; }
+    .stat-divider { display: none; }
+    .stat-item { flex: 0 0 45%; }
+    .stat-number { font-size: 2.4rem; }
+    .arc-timeline { flex-direction: column; gap: 24px; padding-top: 0; }
+    .arc-line { display: none; }
+    .arc-item { text-align: left; padding: 12px 0 12px 32px; border-left: 3px solid rgba(255,255,255,0.15); }
+    .arc-current { border-left-color: var(--gold); }
+    .arc-dot { display: none; }
+    .impact-grid { grid-template-columns: 1fr 1fr; }
+    .impact-item:nth-child(2n) { border-right: none; }
+    .accomplishments-grid { grid-template-columns: 1fr; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .news-item { grid-template-columns: 1fr; gap: 8px; }
+    .bio-preview { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 40px 24px 30px; }
+    .hero h1 { font-size: 2.2rem; }
+    .stats-strip { padding: 32px 24px; }
+    .stat-item { flex: 0 0 100%; }
+    .stat-number { font-size: 2rem; }
+    .career-arc { padding: 50px 24px; }
+    .leadership, .expertise, .in-news, .bio-preview { padding: 50px 24px; }
+    .accomplishments { padding: 40px 24px; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .impact-item { border-right: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <a href="index.html" class="site-name" style="text-decoration:none; display:flex; flex-direction:column; gap:3px; line-height:1;">
+      <span style="font-family:'Young Serif',serif; font-size:1.35rem; font-weight:900; letter-spacing:0.06em; text-transform:uppercase; color:var(--navy);">Scott Beaulier</span>
+      <span style="width:100%; height:2px; background:var(--gold); display:block;"></span>
+    </a>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="philosophy.html">Philosophy</a>
+      <a href="cv.html">CV</a>
+      <a href="press.html">Press</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section style="position:relative; padding:0; overflow:hidden;">
+  <div style="width:100%; height:520px; overflow:hidden; position:relative;">
+    <img src="scott-building-full.jpg" alt="Scott Beaulier at the College of Business, University of Wyoming" style="width:100%; height:100%; object-fit:cover; object-position:center 15%; filter:brightness(0.4);">
+    <div style="position:absolute; bottom:0; left:0; right:0; padding:60px 40px 50px; max-width:1200px; margin:0 auto;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:0.75rem; font-weight:500; text-transform:uppercase; letter-spacing:0.2em; color:var(--gold-light); margin-bottom:20px; display:flex; align-items:center; gap:12px;"><span style="width:30px; height:2px; background:var(--gold-light); display:inline-block;"></span>Economist · Dean · University Leader</div>
+      <h1 style="font-family:'Young Serif',serif; font-size:3.8rem; font-weight:900; line-height:1.05; margin-bottom:20px; color:var(--warm-white); max-width:750px;">Institutional renewal, <em style="font-style:italic; color:var(--gold-light);">student opportunity,</em> and the future of higher education.</h1>
+      <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:28px;">
+        <a href="cv.html" style="font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--warm-white); padding:10px 20px; border:1.5px solid rgba(255,255,255,0.5); text-decoration:none; transition:all 0.3s;">View CV</a>
+        <a href="contact.html" style="font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--warm-white); padding:10px 20px; border:1.5px solid rgba(255,255,255,0.5); text-decoration:none; transition:all 0.3s;">Contact</a>
+        <a href="press.html" style="font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--warm-white); padding:10px 20px; border:1.5px solid rgba(255,255,255,0.5); text-decoration:none; transition:all 0.3s;">Press & Media</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO COPY -->
+<section style="max-width:900px; margin:0 auto; padding:60px 40px; border-bottom:1px solid var(--light-rule);">
+  <p style="font-size:1.12rem; line-height:1.85; color:#444; margin-bottom:20px;">University of Wyoming economist, educational entrepreneur, and university leader Scott Beaulier is focused on rethinking how higher education can better serve students, communities, and the public. As Dean of Business and Professor of Economics at the University of Wyoming, Scott brings together economics, leadership, innovation, and real-world problem solving to explore how universities can become stronger engines for opportunity, workforce development, and economic growth.</p>
+  <p style="font-size:1.12rem; line-height:1.85; color:#444;">Known for making complex economic and educational issues accessible and relevant, Scott is a trusted voice on topics including the future of higher education, economic trends, leadership, innovation, and the evolving relationship between universities and the communities they serve. His work is grounded in the belief that education should do more than prepare students for careers. It should inspire ideas, strengthen communities, encourage entrepreneurship, and create lasting impact well beyond the classroom.</p>
+</section>
+
+<!-- STATS STRIP -->
+<section class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number">15+</div>
+      <div class="stat-label">Years in University Leadership</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">1,500</div>
+      <div class="stat-label">Students Served</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">$12M+</div>
+      <div class="stat-label">Annual Budget Oversight</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Research Universities Led</div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL STATEMENT -->
+<section style="max-width:900px; margin:0 auto; padding:60px 40px; border-bottom:1px solid var(--light-rule);">
+  <blockquote style="font-family:'Young Serif',serif; font-size:1.6rem; font-style:italic; line-height:1.5; color:var(--ink); border-left:4px solid var(--gold); padding:8px 0 8px 32px; margin:0;">
+    "Making academic degrees affordable and accessible does not mean sacrificing quality. It just requires responding to the modern marketplace and not being afraid to drop the status quo."
+  </blockquote>
+  <img src="scott-signature.png" alt="Scott Beaulier signature" style="height:44px; margin-top:20px; margin-left:32px; opacity:1;">
+</section>
+
+<!-- CAREER ARC -->
+<section class="career-arc">
+  <div class="career-arc-inner">
+    <div class="section-header">
+      <h2>Career Arc</h2>
+      <span class="section-label">Institutions & Roles</span>
+    </div>
+    <div class="arc-timeline">
+      <div class="arc-line"></div>
+      <div class="arc-item">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2004–2010</div>
+        <div class="arc-role">Faculty & Department Chair</div>
+        <div class="arc-institution">Mercer University & Beloit College</div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2010–2014</div>
+        <div class="arc-role">Executive Director & Division Chair</div>
+        <div class="arc-institution">Troy University</div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2015–2016</div>
+        <div class="arc-role">Executive Director, Center for Economic Liberty</div>
+        <div class="arc-institution">Arizona State University</div>
+      </div>
+      <div class="arc-item">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2016–2022</div>
+        <div class="arc-role">Dean of Business</div>
+        <div class="arc-institution">North Dakota State University</div>
+      </div>
+      <div class="arc-item arc-current">
+        <div class="arc-dot"></div>
+        <div class="arc-year">2022–Present</div>
+        <div class="arc-role">Dean of Business</div>
+        <div class="arc-institution">University of Wyoming</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP & IMPACT -->
+<section class="leadership" id="leadership">
+  <div class="section-header">
+    <h2>Leadership & Impact</h2>
+    <span class="section-label">Areas of Focus</span>
+  </div>
+  <div class="impact-grid">
+    <div class="impact-item"><div class="impact-number">01</div><h3>Institutional Leadership</h3><p>Leading an AACSB-accredited R1 business college with 75 faculty and staff, 1,500 students, and a $12M+ annual budget.</p></div>
+    <div class="impact-item"><div class="impact-number">02</div><h3>Enrollment Growth</h3><p>Growing and stabilizing undergraduate enrollment during a period of national and university-wide decline.</p></div>
+    <div class="impact-item"><div class="impact-number">03</div><h3>Fundraising & Donor Leadership</h3><p>Securing external resources, cultivating major gift relationships, and expanding revenue through online MBA growth.</p></div>
+    <div class="impact-item"><div class="impact-number">04</div><h3>Workforce & Economic Development</h3><p>Building partnerships between the university and regional employers to align academic programs with workforce needs.</p></div>
+    <div class="impact-item"><div class="impact-number">05</div><h3>Statewide Engagement</h3><p>Legislative and trustee engagement, community outreach, and representing the college across Wyoming and the region.</p></div>
+    <div class="impact-item"><div class="impact-number">06</div><h3>Organizational Leadership</h3><p>Strategic plan development, faculty recruitment and retention, accreditation management, and program innovation.</p></div>
+  </div>
+</section>
+
+<!-- ACCOMPLISHMENTS -->
+<section class="accomplishments">
+  <div class="accomplishments-inner">
+    <div class="accomplishments-header">Selected Accomplishments</div>
+    <div class="accomplishments-grid">
+      <div class="accomplishment-entry">
+        <p>Expanded online MBA enrollments to account for 20%+ of College of Business revenues, creating a sustainable new revenue stream.</p>
+        <div class="acc-context">University of Wyoming · 2022–Present</div>
+      </div>
+      <div class="accomplishment-entry">
+        <p>Maintained stable and growing undergraduate enrollments during a period of significant university-wide enrollment decline.</p>
+        <div class="acc-context">University of Wyoming · 2022–Present</div>
+      </div>
+      <div class="accomplishment-entry">
+        <p>Secured new external resources to support junior faculty retention and a nationally recognized guest speaker series.</p>
+        <div class="acc-context">University of Wyoming · 2022</div>
+      </div>
+      <div class="accomplishment-entry">
+        <p>Led the College of Business to historic successes in enrollment, fundraising, and community engagement across North Dakota.</p>
+        <div class="acc-context">North Dakota State University · 2016–2022</div>
+      </div>
+      <div class="accomplishment-entry">
+        <p>Recruited seven Ph.D. economists and expanded program offerings to include a new major and Master of Arts in economics.</p>
+        <div class="acc-context">Troy University · 2010–2014</div>
+      </div>
+      <div class="accomplishment-entry">
+        <p>The Economics Department continues to rank among the top 20 nationally in environmental and experimental economics, with significant NSF and EPSCoR support.</p>
+        <div class="acc-context">University of Wyoming</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise" id="expertise">
+  <div class="section-header">
+    <h2>Areas of Expertise</h2>
+    <span class="section-label">Research & Practice</span>
+  </div>
+  <div class="expertise-grid">
+    <div class="expertise-card fade-in">
+      <h3>Access & Affordability in Higher Education</h3>
+      <p>Committed to delivering quality business education at scale without compromising access or affordability. A record of expanding programs and revenue while keeping costs manageable for students and families.</p>
+    </div>
+    <div class="expertise-card fade-in">
+      <h3>Workforce Alignment & Regional Prosperity</h3>
+      <p>Bridging higher education and employer needs through curriculum reform, industry partnerships, and economic development initiatives that serve students and the communities around them.</p>
+    </div>
+    <div class="expertise-card fade-in">
+      <h3>Institutional Innovation & Strategic Planning</h3>
+      <p>Focused on institutional renewal through strategic planning, program development, online education expansion, and organizational change management within complex university systems.</p>
+    </div>
+    <div class="expertise-card fade-in">
+      <h3>Economics & Public Policy</h3>
+      <p>A trained economist (Ph.D., George Mason) with published research and public commentary on economic freedom, labor markets, household finance, and education policy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IN THE NEWS (smaller, supporting role) -->
+<section class="in-news" id="news">
+  <div class="section-header">
+    <h2>In the News</h2>
+    <span class="section-label">Recent Coverage</span>
+  </div>
+  <div class="news-list">
+    <a class="news-item" href="https://money.com/wages-not-keeping-up-with-cost-of-living/" target="_blank"><span class="news-date">Jul 2026</span><span class="news-title">Most Workers Say Their Raises Aren't Keeping Up With the Cost of Living</span><span class="news-source">Money →</span></a>
+    <a class="news-item" href="https://www.washingtontimes.com/news/2026/jul/9/purdue-shares-first-nation-ai-graduation-requirements-fall-semester/" target="_blank"><span class="news-date">Jul 2026</span><span class="news-title">Purdue Shares First-in-the-Nation AI Graduation Requirements for Fall</span><span class="news-source">Washington Times →</span></a>
+    <a class="news-item" href="https://www.washingtontimes.com/news/2026/jul/1/vanderbilt-report-liberal-bias-humanities-sparks-outrage-higher/" target="_blank"><span class="news-date">Jul 2026</span><span class="news-title">Vanderbilt Report on Liberal Bias in Humanities Sparks Outrage in Higher Ed</span><span class="news-source">Washington Times →</span></a>
+    <a class="news-item" href="https://www.scrippsnews.com/us-news/raising-the-minimum-wage-helps-some-workers-but-economists-warn-it-could-hurt-others" target="_blank"><span class="news-date">Jun 2026</span><span class="news-title">Raising the Minimum Wage Helps Some Workers, but Could Hurt Others</span><span class="news-source">Scripps News →</span></a>
+    <a class="news-item" href="https://www.newsweek.com/these-gen-xers-put-off-buying-a-home-now-they-see-how-good-they-had-it-12026886" target="_blank"><span class="news-date">2026</span><span class="news-title">These Gen Xers Put Off Buying a Home — Now They See How Good They Had It</span><span class="news-source">Newsweek →</span></a>
+    <a class="news-item" href="https://www.washingtontimes.com/news/2026/may/27/number-teens-working-summer-jobs-hit-8-decade-low/" target="_blank"><span class="news-date">May 2026</span><span class="news-title">Number of Teens Working Summer Jobs Hit 8-Decade Low</span><span class="news-source">Washington Times →</span></a>
+  </div>
+  <a href="press.html" class="view-all-link">View All Coverage →</a>
+  </div>
+</section>
+
+<!-- BIO -->
+<section class="bio-preview" id="bio">
+  <div>
+    <h2>About Scott</h2>
+    <div class="bio-text">
+      <p>Scott Beaulier is the H.A. (Dave) True Family Dean of Business and Professor of Economics at the University of Wyoming. An economist by training and an educational entrepreneur by practice, he focuses on how universities can be designed to better serve students, communities, and the public.</p>
+      <p>As dean, Beaulier oversees one of the nation's most distinctive public business schools, including nationally ranked online programs and a growing portfolio of industry partnerships, workforce initiatives, and philanthropic investments.</p>
+      <p>His leadership has included major fundraising efforts, accreditation reviews, and strategic initiatives centered on academic excellence, student opportunity, and strengthening public trust in higher education.</p>
+    </div>
+    <a href="cv.html" class="view-all-link">Full CV & Career History →</a>
+  </div>
+  <div class="bio-highlights">
+    <h3>At a Glance</h3>
+    <div class="highlight-item"><div class="highlight-label">Current Role</div><div class="highlight-value">Dean of Business, University of Wyoming</div></div>
+    <div class="highlight-item"><div class="highlight-label">Institution Type</div><div class="highlight-value">AACSB-Accredited R1 Public University</div></div>
+    <div class="highlight-item"><div class="highlight-label">Education</div><div class="highlight-value">Ph.D. Economics, George Mason University</div></div>
+    <div class="highlight-item"><div class="highlight-label">Previous Roles</div><div class="highlight-value">Dean at NDSU · Exec Dir at ASU · Div Chair at Troy</div></div>
+    <div class="highlight-item"><div class="highlight-label">Scope</div><div class="highlight-value">75 Faculty/Staff · 1,500 Students · $12M+ Budget</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="media-cta">
+  <div class="media-cta-inner">
+    <h2>Get in Touch</h2>
+    <p>Scott welcomes inquiries from fellow academic leaders, search committees, conference organizers, and journalists covering higher education.</p>
+    <div class="cta-buttons">
+      <a href="mailto:Sbeauli2@uwyo.edu" class="cta-btn primary">Email Scott</a>
+      <a href="cv.html" class="cta-btn">View Full CV</a>
+      <a href="press.html" class="cta-btn">Press & Media</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>&copy; 2026 Scott Beaulier. All rights reserved.</span>
+  <div>
+    <a href="https://twitter.com/SBeaulier77">Twitter/X</a>
+    <a href="https://www.facebook.com/scott.beaulier.3">Facebook</a>
+    <a href="https://www.linkedin.com/in/scott-beaulier-0524102/" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>
